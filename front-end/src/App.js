@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import CompanyLoginForm from './components/company/CompanyLoginForm';
 import CompanySignUp from './components/company/CompanySignUp';
 import CompanyDashboard from './components/company/CompanyDashboard'
+import AddJob from './components/company/AddJob'
+import CurrentJobs from './components/company/CurrentJobs'
+import CompanyEditProfile from './components/company/CompanyEditProfile'
 import ProtectedRouteCompany from './utils/ProtectedRouteCompany'
 
 
@@ -14,7 +17,14 @@ function App() {
       <Route exact path='/company-login' component={CompanyLoginForm}/>
       <Route path='/company-signup' component={CompanySignUp} />
       
+
+
+      {/* these will all be protected Routes */}
       <Route path="/company-dashboard" component={CompanyDashboard} />
+      <Route path="/add-a-job" component={AddJob} />
+      <Route path="/current-jobs" component={CurrentJobs} />
+      <Route path="/edit-profile" component={CompanyEditProfile} />
+
       
       {/* Temporary Nav Links */}
       <Link to='/'>Home</Link>
