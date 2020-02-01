@@ -24,7 +24,7 @@ const CompanyLoginForm = (props) => {
           name='email'
           placeholder='Email'
           ref={register({
-            required: 'Required Field',
+            required: 'Email address required',
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
               message: 'Invalid email address'
@@ -41,17 +41,19 @@ const CompanyLoginForm = (props) => {
             // style error messages. maybe turn red?
             minLength: {
               value: 8,
-              message: 'Password must have a least 8 characters'
+              message: 'Password must contain at least 8 characters'
             }
             // validation below was in the R-H-F docs, but not sure how to apply it to passwords.
             // validate: value => value !== "admin" || "Nice try!"
           })}
         />
         {errors.password && <p className='red'>{errors.password.message}</p>}
+        {/* Password is not currently being verified. I think that might need to connect to backend? */}
         {/* add a 'Forgot Password' page if we get time.
-        <Link to='/forgotpassword' /> */}
-        <Link to='/signup' />
+        <Link to='/forgotpassword'>Forgot Password?</Link> */}
+        <Link to='/signup'>Don't have an account? Sign up today!</Link>
         <Route path='/signup' />
+        
         <input type='submit' onClick={handleSubmit(onSubmit)} />
       </form>
     </div>

@@ -4,8 +4,10 @@ import styled from 'styled-components';
 
 const CompanySignUp = () => {
   const { handleSubmit, register, errors, watch } = useForm({});
+
   const password = useRef({});
   password.current = watch('password', '');
+  
   const onSubmit = async data => {
     alert(JSON.stringify(data));
   };
@@ -38,7 +40,11 @@ const CompanySignUp = () => {
             // style error messages. maybe turn red? className='red'
             minLength: {
               value: 8,
-              message: 'Password must have a least 8 characters'
+              message: 'Password must contain at least 8 characters'
+            },
+            maxLength: {
+              value: 20,
+              message: 'Password must contain 20 characters or fewer'
             }
             // validation below was in the R-H-F docs, but not sure how to apply it to passwords.
             // validate: value => value !== "admin" || "Nice try!"
@@ -47,7 +53,7 @@ const CompanySignUp = () => {
         {errors.password && <p className='red'>{errors.password.message}</p>}
 
         <input 
-          name='password_repeat'
+          name='passwordRepeat'
           placeholder='Repeat Password'
           type='password'
           ref={register({
@@ -55,7 +61,7 @@ const CompanySignUp = () => {
               value === password.current || 'The passwords do not match'
           })}
         />
-        {errors.password_repeat && <p>{errors.password_repeat.message}</p>}
+        {errors.passwordRepeat && <p>{errors.passwordRepeat.message}</p>}
 
         <input type='submit' onClick={handleSubmit(onSubmit)} />
       </form>
