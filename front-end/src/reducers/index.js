@@ -1,9 +1,11 @@
-const initialState = {
-  
-}
+import { combineReducers } from "redux";
+import { companyReducer } from './companyReducer'
+import { jobSeekerReducer} from './jobSeekerReducer'
 
-export const reducer = (state = initialState, action) => {
-  switch (action.type) { 
-    default: return state;
-  }
-}
+
+
+
+export default combineReducers({
+  companyReducer,
+  jobSeekerReducer
+});
