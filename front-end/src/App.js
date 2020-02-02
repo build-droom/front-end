@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import CompanyLoginForm from './components/company/CompanyLoginForm';
-import CompanySignUp from './components/company/CompanySignUp';
-import CompanyDashboard from './components/company/CompanyDashboard'
-import AddJob from './components/company/AddJob'
-import CurrentJobs from './components/company/CurrentJobs'
-import CompanyEditProfile from './components/company/CompanyEditProfile'
-import ProtectedRouteCompany from './utils/ProtectedRouteCompany'
+import CompanyLoginForm from './company/components/company/CompanyLoginForm';
+import CompanySignUp from './company/components/company/CompanySignUp';
+import CompanyDashboard from './company/components/company/CompanyDashboard'
+import AddJob from './company/components/company/AddJob'
+import CurrentJobs from './company/components/company/CurrentJobs'
+import CompanyEditProfile from './company/components/company/CompanyEditProfile'
+import ProtectedRouteCompany from './company/utils/ProtectedRouteCompany'
 
 
 function App() {
