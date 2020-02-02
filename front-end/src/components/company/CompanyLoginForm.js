@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 const CompanyLoginForm = (props) => {
   const { handleSubmit, register, errors } = useForm();
 
-  const state = useSelector(state => state.companyReducer)
+  const state = useSelector(state => state.companyLoginReducer)
 
   const dispatch = useDispatch()
 
@@ -22,9 +22,7 @@ const CompanyLoginForm = (props) => {
     dispatch(loginCompany(values))
     .then(res => {
       console.log('this is from login', res)
-      if (res) {
         props.history.push('/company-dashboard')
-      }
     })
     
   }

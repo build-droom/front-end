@@ -13,10 +13,18 @@ export const loginCompany = creds => dispatch => {
     .then(res => {
       localStorage.setItem('companytoken', res.data.payload);
       dispatch({ type: LOGIN_SUCCESS });
-      return true;
+      // return true;
     })
-    .catch(err => console.log(err.response));
+    .catch(err => {
+      console.log('action error', err.response.data.error)
+      dispatch({ type: LOGIN_FAILURE,
+        payload: err.response.data.error
+              })
+    });
 };
+
+
+
 
 export const FETCH_DATA_START = 'FETCH_DATA_START';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';

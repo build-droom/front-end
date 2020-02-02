@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
-import { companyReducer } from './companyReducer'
+import { companyLoginReducer } from './companyLoginReducer'
 import { jobSeekerReducer} from './jobSeekerReducer'
 
 
 
 
 export default combineReducers({
-  companyReducer,
+  companyLoginReducer,
   jobSeekerReducer
 });

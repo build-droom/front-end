@@ -8,7 +8,7 @@ error: '',
 loggingIn: false
 }
 
-export const companyReducer = (state = initialState, action) => {
+export const companyLoginReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_START:
       return {
