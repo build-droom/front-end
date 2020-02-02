@@ -11,7 +11,7 @@ export const loginCompany = creds => dispatch => {
   return axiosWithAuthCompany()
     .post('/login', creds)
     .then(res => {
-      localStorage.setItem('token', res.data.payload);
+      localStorage.setItem('companytoken', res.data.payload);
       dispatch({ type: LOGIN_SUCCESS });
       return true;
     })

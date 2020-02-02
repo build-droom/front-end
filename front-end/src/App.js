@@ -20,10 +20,10 @@ function App() {
 
 
       {/* these will all be protected Routes */}
-      <Route path="/company-dashboard" component={CompanyDashboard} />
-      <Route path="/add-a-job" component={AddJob} />
-      <Route path="/current-jobs" component={CurrentJobs} />
-      <Route path="/edit-profile" component={CompanyEditProfile} />
+      <ProtectedRouteCompany path="/company-dashboard" component={CompanyDashboard} />
+      <ProtectedRouteCompany path="/add-a-job" component={AddJob} />
+      <ProtectedRouteCompany path="/current-jobs" component={CurrentJobs} />
+      <ProtectedRouteCompany path="/edit-profile" component={CompanyEditProfile} />
 
       
       {/* Temporary Nav Links */}
