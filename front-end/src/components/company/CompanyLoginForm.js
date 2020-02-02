@@ -2,16 +2,31 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, Route } from 'react-router-dom'
 import styled from 'styled-components';
+import {loginCompany} from '../../actions'
+import { useDispatch, useSelector } from 'react-redux'
 
 
 
 const CompanyLoginForm = (props) => {
   const { handleSubmit, register, errors } = useForm();
+
+  const state = useSelector(state => state.companyReducer)
+
+  const dispatch = useDispatch()
+
+  console.log(state)
   console.log(props)
   
   const onSubmit = values => {
     console.log(values);
-    props.history.push('/company-dashboard')
+    dispatch(loginCompany(values))
+    .then(res => {
+      console.log('this is from login', res)
+      if (res) {
+        props.history.push('/company-dashboard')
+      }
+    })
+    
   }
 
 
