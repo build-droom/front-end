@@ -4,7 +4,7 @@ export const getToken = () => {
   localStorage.getItem("token")
 }
 
-export const axiosWithAuth = () => {
+export const axiosWithAuthCompany = () => {
   return axios.create({
     // config object
     baseURL: 'http://localhost:5000',
