@@ -28,8 +28,8 @@ const Input = styled.input`
 
 const LinkStyled = styled(Link)`
 	margin-left: 10px;
-	border: 1px solid red;
 	cursor: pointer;
+	text-decoration: none;
 `;
 
 const Links = styled.div`
@@ -40,7 +40,6 @@ const Links = styled.div`
 	margin-left: 20%;
 	align-items: center;
 	justify-content: center;
-	border: 1px solid green;
 `;
 
 const ButtonStyled = styled.button`
