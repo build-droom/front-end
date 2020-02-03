@@ -24,8 +24,7 @@ const CompanyLoginForm = (props) => {
       console.log('this is from login', res)
         props.history.push('/company-dashboard')
     })
-    
-  }
+    }
 
 
   return (

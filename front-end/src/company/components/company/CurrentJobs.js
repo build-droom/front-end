@@ -1,12 +1,14 @@
-import React from 'react'
+import React from 'react';
 
-const CurrentJobs = () => {
+const CurrentJobs = ({ jobs }) => {
+
   return (
-    <div>
-      <h1>Current Jobs</h1>
-      {/* list of current jobs */}
-    </div>
+    <ul>
+      {jobs.map((job, index) => (
+        <li key={index} ></li>
+      ))}
+    </ul>
   )
 }
 
-export default CurrentJobs
+export default CurrentJobs;
