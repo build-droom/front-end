@@ -24,17 +24,18 @@ const CompanyLoginForm = (props) => {
       console.log('this is from login', res)
         props.history.push('/company-dashboard')
     })
-    }
+  }
 
 
   return (
     <div class='login-container'>
       <h1>DROOM</h1>
-      <h2>Sign In </h2>
+      <h2> Company Sign In </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          name='email'
+          name='company_email'
           placeholder='Email'
+          type='email'
           ref={register({
             required: 'Email address required',
             pattern: {
@@ -60,7 +61,6 @@ const CompanyLoginForm = (props) => {
           })}
         />
         {errors.password && <p className='red'>{errors.password.message}</p>}
-        {/* Password is not currently being verified. I think that might need to connect to backend? */}
         {/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword'>Forgot Password?</Link> */}
         <Link to='/signup'>Don't have an account? Sign up today!</Link>
