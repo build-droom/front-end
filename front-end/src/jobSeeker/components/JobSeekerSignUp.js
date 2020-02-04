@@ -11,16 +11,49 @@ const JobSeekerSignUp = () => {
   };
 
   return(
-    <div class='login-container'>
+    <div class='seeker-signup-container'>
       <h1>DROOM</h1>
-      <h2>Sign Up</h2>
+      <h2>Job Seeker Sign Up</h2>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input 
-          name='email'
-          placeholder='Email'
+        <input
+          type='text'
+          name='username'
+          placeholder='Username'
           ref={register({
-            required: 'Required Field',
+            required: 'You must enter a username',
+            minLength: {
+            value: 6,
+            message: 'Username must contain at least 6 characters'
+            },
+            maxLength: {
+              value: 15,
+              message: 'Username must contain 15 characters or less'
+            }
+          })}
+        />
+        <input
+          type='text'
+          name='full_name'
+          placeholder='Name'
+          ref={register({
+            required: 'You must enter your Name',
+            minLength: {
+            value: 6,
+            message: 'Name must contain at least 6 characters'
+            },
+            maxLength: {
+              value: 40,
+              message: 'Name must contain 40 characters or less'
+            }
+          })}
+        />
+        <input 
+          name='seekers_email'
+          placeholder='Email'
+          type='email'
+          ref={register({
+            required: 'You must enter an Email',
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
               message: 'Invalid email address'
@@ -28,7 +61,6 @@ const JobSeekerSignUp = () => {
           })}
         />
         {errors.email && errors.email.message}
-
         <input
           name='password'
           placeholder='Password'
@@ -56,7 +88,51 @@ const JobSeekerSignUp = () => {
           })}
         />
         {errors.password_repeat && <p>{errors.password_repeat.message}</p>}
-
+        <input 
+        type="text" 
+        placeholder="Occupation" 
+        name="occupation" 
+        ref={register({required: "You must enter an Occupation", 
+        minLength: {
+          value: 3,
+          message: 'Occupation must contain at least 3 characters'
+        },
+        maxLength: {
+          value: 20,
+          message: 'Occupation type must contain 20 characters or fewer'
+        }
+        })} 
+        />
+        <input 
+        type="text" 
+        placeholder="Location" 
+        name="seekers_location" 
+        ref={register({required: "You must enter a Location", 
+        minLength: {
+          value: 3,
+          message: 'Location must contain at least 3 characters'
+        },
+        maxLength: {
+          value: 20,
+          message: 'Location must contain 20 characters or fewer'
+        }
+        })} 
+        />
+        <input 
+        type="text" 
+        placeholder="Education" 
+        name="education" 
+        ref={register({required: "You must enter highest form of Education", 
+        minLength: {
+          value: 3,
+          message: 'Education must contain at least 3 characters'
+        },
+        maxLength: {
+          value: 20,
+          message: 'Education must contain 20 characters or fewer'
+        }
+        })} 
+        />
         <input type='submit' onClick={handleSubmit(onSubmit)} />
       </form>
     </div>

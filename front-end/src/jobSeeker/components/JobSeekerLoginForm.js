@@ -31,17 +31,15 @@ const JobSeekerLoginForm = (props) => {
   return (
     <div class='login-container'>
       <h1>DROOM</h1>
-      <h2>Sign In </h2>
+      <h2>Job Seeker Sign In </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          name='email'
-          placeholder='Email'
+          type='text'
+          name='username'
+          placeholder='Username'
           ref={register({
             required: 'Required Field',
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: 'Invalid email address'
-            }
+            validate: value => value != "admin" || "Nice Try!"
           })}
         />
         {errors.email && errors.email.message}
