@@ -80,19 +80,6 @@ const Home = (props) => {
         />
         {errors.password && <p className='red'>{errors.password.message}</p>}
 
-				{/* {swapUser && (
-				<Input
-				name='swapUser'
-				placeholder='Email'
-				ref={register({
-					required: 'Email address required',
-					pattern: {
-						value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-						message: 'Invalid email address'
-					}
-				})}
-			/>
-			)} */}
         {/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword'>Forgot Password?</Link> */}
         <Link to='/signup'>Don't have an account? Sign up today!</Link>

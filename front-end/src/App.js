@@ -9,7 +9,7 @@ import CompanySignUp from './company/components/company/CompanySignUp';
 
 import JobSeekerSignUp from './jobSeeker/components/JobSeekerSignUp';
 import CompanyDashboard from './company/components/company/CompanyDashboard';
-import JobSeekerDashboard from './jobSeeker/components/JobSeekerDashboard';
+import JobSeekerDashBoard from './jobSeeker/components/JobSeekerDashBoard';
 import AddJob from './company/components/company/AddJob';
 import CurrentJobs from './company/components/company/CurrentJobs';
 import CompanyEditProfile from './company/components/company/CompanyEditProfile';
@@ -36,7 +36,7 @@ function App() {
 				/>
 				<ProtectedRouteCompany
 					path='/jobseeker-dashboard'
-					component={JobSeekerDashboard}
+					component={JobSeekerDashBoard}
 				/>
 				<ProtectedRouteCompany path='/add-a-job' component={AddJob} />
 				<ProtectedRouteCompany path='/current-jobs' component={CurrentJobs} />
