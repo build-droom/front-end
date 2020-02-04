@@ -1,18 +1,28 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { postData } from '../../actions/companyAPIAction';
-import { useDispatch, useSelector } from 'react-redux';
+
+import { useDispatch } from 'react-redux';
+import { deleteData } from '../../actions/';
+
+import { axiosWithAuthCompany } from '../../utils/axiosWithAuthCompany';
 
 const CompanyEditProfile = props => {
-	const { handleSubmit, register, errors, watch } = useForm({});
+	const { handleSubmit, register, errors } = useForm({});
+
 	const dispatch = useDispatch();
 
-	const password = useRef({});
-	password.current = watch('password', '');
+	const onSubmit = values => {
+		axiosWithAuthCompany()
+			.put('/companies', values)
+			.then(res => {
+				console.log('this is edit profile', res);
+				props.history.push('/company-dashboard');
+			});
+	};
 
-	const onSubmit = data => {
+	const deleteProfile = data => {
 		console.log('hello from company', data);
-		dispatch(postData(data)).then(res => {
+		dispatch(deleteData(data)).then(res => {
 			console.log('this is from signup', res);
 			props.history.push('/');
 		});
@@ -72,16 +82,7 @@ const CompanyEditProfile = props => {
 					})}
 				/>
 				{errors.password && <p className='red'>{errors.password.message}</p>}
-				<input
-					name='passwordRepeat'
-					placeholder='Repeat Password'
-					type='password'
-					ref={register({
-						validate: value =>
-							value === password.current || 'The passwords do not match'
-					})}
-				/>
-				{errors.passwordRepeat && <p>{errors.passwordRepeat.message}</p>}
+
 				<input
 					type='textarea'
 					placeholder='Company'
@@ -130,9 +131,11 @@ const CompanyEditProfile = props => {
 						}
 					})}
 				/>
-				<input type='submit' onClick={handleSubmit(onSubmit)} />
+				<button onClick={onSubmit}>Save</button>
 			</form>
+			<button onClick={deleteProfile}>Delete Profile</button>
 		</div>
 	);
 };
+
 export default CompanyEditProfile;

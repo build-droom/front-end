@@ -7,6 +7,14 @@ const JobSeekerDashBoard = () => {
 			<input placeholder='location' />
 			<input placeholder='industry' />
 			<input placeholder='salary' />
+			{
+				//to jobseekers swipe
+			}
+			<button>Search</button>
+			{
+				//to jobseekers matches
+			}
+			<button> Matches</button>
 		</div>
 	);
 };
