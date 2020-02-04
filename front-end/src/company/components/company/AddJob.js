@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
+import axios from 'axios';
 
-const AddJob = ({ saveJob }) => {
-  const [job, setJob] = useState('');
+const AddJob = (props) => {
+  // const [job, setJob] = useState('');
 
   const { handleSubmit, register, errors } = useForm();
 
   const onSubmit = values => {
     console.log(values);
-    saveJob(job);
+    // saveJob(job);
+    axios.post('ttps://droombwlambda.herokuapp.com/api/companies/job')
+      .then((res) => {
+        props.history.push('/currentjobs')
+      })
+      .catch(err => {
+        console.log('Error posting job', err);
+      })
   }
 // need to refresh form after submission
   return (

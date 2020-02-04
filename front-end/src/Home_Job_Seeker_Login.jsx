@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import {loginJobSeeker} from './jobSeeker/actions/jobSeekerLoginAction'
 
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import logo from './images/droom-logo.svg';
 import {

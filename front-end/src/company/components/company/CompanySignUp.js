@@ -1,11 +1,24 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 import { postData } from '../../actions/companyAPIAction';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import logo from '../../../images/droom-logo.svg';
+import {
+	HomeStyled,
+	StyledHeading,
+	Form,
+	Input,
+	TextArea,
+	Links,
+	LinkStyled,
+	ButtonStyled,
+	ButtonStyledSignUp
+} from '../../../styledcomp/Home';
+
+
 
 const CompanySignUp = props => {
-	const { handleSubmit, register, errors, watch } = useForm({});
+	const { handleSubmit, register, errors } = useForm({});
 	const dispatch = useDispatch();
 
 	// const password = useRef({});
@@ -20,11 +33,11 @@ const CompanySignUp = props => {
 	};
 
 	return (
-		<div class='login-container'>
-			<h1>DROOM</h1>
-			<h2>Company Sign Up</h2>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<input
+		<HomeStyled>
+			<img src={logo} alt='droom_logo' className='logo' />
+			<StyledHeading>Sign Up</StyledHeading>
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<Input
 					type='text'
 					placeholder='Company'
 					name='company_name'
@@ -40,7 +53,7 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					name='company_email'
 					placeholder='Email'
 					type='email'
@@ -53,7 +66,7 @@ const CompanySignUp = props => {
 					})}
 				/>
 				{errors.email && errors.email.message}
-				<input
+				<Input
 					name='password'
 					placeholder='Password'
 					type='password'
@@ -74,7 +87,7 @@ const CompanySignUp = props => {
 				/>
 				{errors.password && <p className='red'>{errors.password.message}</p>}
 
-				{/* <input
+				{/* <Input
           // name="passwordRepeat"
           placeholder="Repeat Password"
           type="password"
@@ -84,9 +97,9 @@ const CompanySignUp = props => {
           })}
         />
         {errors.passwordRepeat && <p>{errors.passwordRepeat.message}</p>} */}
-				<input
+				<TextArea
 					type='textarea'
-					placeholder='Company-descript'
+					placeholder='Description'
 					name='companies_description'
 					ref={register({
 						required: 'You must enter a company description',
@@ -100,7 +113,7 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					type='text'
 					placeholder='Company Location'
 					name='companies_location'
@@ -116,7 +129,7 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					type='text'
 					placeholder='Industry'
 					name='industry_type'
@@ -132,9 +145,11 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
-				<input type='submit' onClick={handleSubmit(onSubmit)} />
-			</form>
-		</div>
+				<ButtonStyledSignUp type='submit' onClick={handleSubmit(onSubmit)}>
+					Submit
+				</ButtonStyledSignUp>
+			</Form>
+		</HomeStyled>
 	);
 };
 export default CompanySignUp;

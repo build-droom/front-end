@@ -1,6 +1,5 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 import { postData } from '../actions/jobSeekerAPIAction';
 import { useDispatch, useSelector } from 'react-redux';
 import logo from '../../images/droom-logo.svg';
@@ -9,13 +8,15 @@ import {
 	StyledHeading,
 	Form,
 	Input,
+	TextArea,
 	Links,
 	LinkStyled,
-	ButtonStyled
+	ButtonStyled,
+	ButtonStyledSignUp
 } from '../../styledcomp/Home';
 
 const JobSeekerSignUp = props => {
-	const { handleSubmit, register, errors, watch } = useForm({});
+	const { handleSubmit, register, errors } = useForm({});
 	const dispatch = useDispatch();
 
 	// const password = useRef({});
@@ -33,10 +34,10 @@ const JobSeekerSignUp = props => {
 		<HomeStyled>
 		{/* <div class='seeker-signup-container'> */}
 		<img src={logo} alt='droom_logo' className='logo' />
-			<h2>Job Seeker Sign Up</h2>
+			<StyledHeading>Sign Up</StyledHeading>
 
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<input
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<Input
 					type='text'
 					name='username'
 					placeholder='Username'
@@ -52,7 +53,7 @@ const JobSeekerSignUp = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					type='text'
 					name='full_name'
 					placeholder='Name'
@@ -68,7 +69,7 @@ const JobSeekerSignUp = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					name='seekers_email'
 					placeholder='Email'
 					type='email'
@@ -81,7 +82,7 @@ const JobSeekerSignUp = props => {
 					})}
 				/>
 				{errors.email && errors.email.message}
-				<input
+				<Input
 					name='password'
 					placeholder='Password'
 					type='password'
@@ -102,7 +103,7 @@ const JobSeekerSignUp = props => {
 				/>
 				{errors.password && <p className='red'>{errors.password.message}</p>}
 
-				{/* <input
+				{/* <Input
           // name="passwordRepeat"
           placeholder="Repeat Password"
           type="password"
@@ -112,9 +113,9 @@ const JobSeekerSignUp = props => {
           })}
         />
         {errors.passwordRepeat && <p>{errors.passwordRepeat.message}</p>} */}
-				<input
+				{/* <TextArea
 					type='textarea'
-					placeholder='Company-descript'
+					placeholder='Description'
 					name='companies_description'
 					ref={register({
 						required: 'You must enter a company description',
@@ -127,8 +128,8 @@ const JobSeekerSignUp = props => {
 							message: 'Description must be 300 characters or less'
 						}
 					})}
-				/>
-				<input
+				/> */}
+				<Input
 					type='text'
 					placeholder='Industry'
 					name='industry_type'
@@ -145,7 +146,7 @@ const JobSeekerSignUp = props => {
 					})}
 				/>
 
-				<input
+				<Input
 					type='text'
 					placeholder='Location'
 					name='seekers_location'
@@ -161,7 +162,7 @@ const JobSeekerSignUp = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					type='text'
 					placeholder='Education'
 					name='education'
@@ -177,8 +178,8 @@ const JobSeekerSignUp = props => {
 						}
 					})}
 				/>
-				<input type='submit' onClick={handleSubmit(onSubmit)} />
-			</form>
+				<ButtonStyledSignUp type='submit' onClick={handleSubmit(onSubmit)}>Submit</ButtonStyledSignUp>
+			</Form>
 		{/* </div> */}
 		</HomeStyled>
 	);
