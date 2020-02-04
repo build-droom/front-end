@@ -41,7 +41,7 @@ export const PUT_DATA_FAILURE = 'PUT_DATA_FAILURE';
 export const putData = data => dispatch => {
 	dispatch({ type: PUT_DATA_START });
 	axiosWithAuthCompany()
-		.put('/data', data)
+		.put('/companies', data)
 		.then(res => {
 			dispatch({ type: PUT_DATA_SUCCESS, payload: res.data });
 		})
@@ -51,22 +51,63 @@ export const putData = data => dispatch => {
 		});
 };
 
+//  ********************************** signup **************
 export const PUSH_DATA_START = 'PUSH_DATA_START';
 export const PUSH_DATA_SUCCESS = 'PUSH_DATA_SUCCESS';
 export const PUSH_DATA_FAILURE = 'PUSH_DATA_FAILURE';
 
+//  ********************************** signup **************
 export const postData = data => dispatch => {
 	dispatch({ type: PUSH_DATA_START });
 	return axiosWithAuthCompany()
-		.post('/register', data)
+		.post('/companies/register', data)
 		.then(res => {
 			console.log('here');
 			dispatch({ type: PUSH_DATA_SUCCESS, payload: res.data });
 		})
 		.catch(err => {
-			console.log(err.response);
-			dispatch({ type: PUSH_DATA_FAILURE, payload: err.response.data.error });
+			console.log(err);
+			dispatch({ type: PUSH_DATA_FAILURE, payload: err });
 		});
 };
 
-//asdsadsad
+// postJob
+
+export const POST_JOB_START = 'POST_JOB_START';
+export const POST_JOB_SUCCESS = 'POST_JOB_SUCCESS';
+export const POST_JOB_FAILURE = 'POST_JOB_FAILURE';
+
+export const postJob = data => dispatch => {
+	console.log('inside post job');
+	dispatch({ type: POST_JOB_START });
+	return axiosWithAuthCompany()
+		.post('/jobs/company/1', data)
+		.then(res => {
+			console.log(res);
+			dispatch({ type: POST_JOB_SUCCESS, payload: res.data });
+		})
+		.catch(err => {
+			console.log(err);
+			dispatch({ type: POST_JOB_FAILURE, payload: err });
+		});
+};
+
+//get jobs
+export const GET_JOB_START = 'GET_JOB_START';
+export const GET_JOB_SUCCESS = 'GET_JOB_SUCCESS';
+export const GET_JOB_FAILURE = 'GET_JOB_FAILURE';
+
+export const getJob = () => dispatch => {
+	console.log('inside post job');
+	dispatch({ type: GET_JOB_START });
+	return axiosWithAuthCompany()
+		.get('/jobs')
+		.then(res => {
+			console.log(res);
+			dispatch({ type: GET_JOB_SUCCESS, payload: res.data });
+		})
+		.catch(err => {
+			console.log(err);
+			dispatch({ type: GET_JOB_FAILURE, payload: err });
+		});
+};

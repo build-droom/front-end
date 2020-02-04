@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
-const CurrentJobs = props => {
+const CurrentJobs = () => {
 	const [information, setInformation] = useState([]);
 
+	//get request to show all jobs of this company
 	useEffect(() => {
-		axios
-			.get('https://droombwlambda.herokuapp.com/api/companies/jobs')
+		axios()
+			.get('/jobs/company/5')
 			.then(response => {
-				console.log('This is the data', response.data);
+				console.log('This is the data', response);
 				setInformation(response.data);
 			})
 			.catch(error => {
@@ -17,9 +17,9 @@ const CurrentJobs = props => {
 	}, []);
 	return (
 		<ul>
-			{props.map((job, index) => (
-				<li key={index} data={job}></li>
-			))}
+			{/* {information.map((job, index) => (
+				<li key={index}>{job}</li>
+			))} */}
 		</ul>
 	);
 };
