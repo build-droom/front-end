@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link, Route } from 'react-router-dom'
 import styled from 'styled-components';
 import {loginJobSeeker} from '../actions/jobSeekerLoginAction'
+
 import { useDispatch, useSelector } from 'react-redux'
 
 
@@ -31,21 +32,19 @@ const JobSeekerLoginForm = (props) => {
   return (
     <div class='login-container'>
       <h1>DROOM</h1>
-      <h2>Sign In </h2>
+      <h2>Job Seeker Sign In </h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
+          type='text'
           name='username'
           placeholder='Username'
-         /*  ref={register({
+          ref={register({
             required: 'Required Field',
-            pattern: {
-              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: 'Invalid email address'
-            }
-          })} */
+            validate: value => value != "admin" || "Nice Try!"
+          })}
         />
-{/*         {errors.email && errors.email.message}
- */}        <input
+        {errors.email && errors.email.message}
+        <input
           name='password'
           placeholder='Password'
           type='password'

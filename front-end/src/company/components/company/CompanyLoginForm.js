@@ -23,8 +23,19 @@ const CompanyLoginForm = props => {
 
   const dispatch = useDispatch();
 
-  console.log(state);
-  console.log(props);
+
+  console.log(state)
+  console.log(props)
+  
+  const onSubmit = values => {
+    console.log(values);
+    dispatch(loginCompany(values))
+    .then(res => {
+      console.log('this is from login', res)
+        props.history.push('/company-dashboard')
+    })
+  }
+
 
   const onSubmit = values => {
     console.log('hello from company', values);
@@ -35,6 +46,7 @@ const CompanyLoginForm = props => {
   };
 
   return (
+
     <HomeStyled>
     <img src={logo} alt="droom_logo" className="logo" />
     <StyledHeading>Sign In</StyledHeading>
@@ -57,6 +69,23 @@ const CompanyLoginForm = props => {
           //     message: "Invalid email address"
           //   }
           // })}
+
+    <div class='login-container'>
+      <h1>DROOM</h1>
+      <h2> Company Sign In </h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input
+          name='company_email'
+          placeholder='Email'
+          type='email'
+          ref={register({
+            required: 'Email address required',
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+              message: 'Invalid email address'
+            }
+          })}
+
         />
         {errors.email && errors.email.message}
         <Input
@@ -67,8 +96,11 @@ const CompanyLoginForm = props => {
             required: "You must enter a password",
             // style error messages. maybe turn red?
             minLength: {
+
               value: 2,
               message: "Password must have a least 8 characters"
+
+
             }
             // validation below was in the R-H-F docs, but not sure how to apply it to passwords.
             // validate: value => value !== "admin" || "Nice try!"
@@ -83,7 +115,7 @@ const CompanyLoginForm = props => {
         </ButtonStyled>
       </Form>
       </HomeStyled>
-   
+
   );
 };
 export default CompanyLoginForm;

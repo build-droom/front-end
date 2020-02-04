@@ -20,39 +20,54 @@ const JobSeekerSignUp = (props) => {
     });
   };
 
-
-  return (
-
-    <div class="login-container">
+  return(
+    <div class='seeker-signup-container'>
       <h1>DROOM</h1>
-      <h2>JobSeeker Sign Up</h2>
+      <h2>Job Seeker Sign Up</h2>
+
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          type="text"
-          placeholder="username"
-          name="username"
+          type='text'
+          name='username'
+          placeholder='Username'
           ref={register({
-            required: "You must username",
+            required: 'You must enter a username',
             minLength: {
-              value: 2,
-              message: "Company name must contain at least 2 characters"
+            value: 6,
+            message: 'Username must contain at least 6 characters'
             },
             maxLength: {
-              value: 30,
-              message: "Password must contain 30 characters or fewer"
+              value: 15,
+              message: 'Username must contain 15 characters or less'
             }
           })}
         />
-
         <input
-          name="job_seekers_email"
-          placeholder="Email"
-          type="email"
+          type='text'
+          name='full_name'
+          placeholder='Name'
           ref={register({
-            required: "You must enter an Email",
+            required: 'You must enter your Name',
+            minLength: {
+            value: 6,
+            message: 'Name must contain at least 6 characters'
+            },
+            maxLength: {
+              value: 40,
+              message: 'Name must contain 40 characters or less'
+            }
+          })}
+        />
+        <input 
+          name='seekers_email'
+          placeholder='Email'
+          type='email'
+          ref={register({
+            required: 'You must enter an Email',
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-              message: "Invalid email address"
+              message: 'Invalid email address'
+
             }
           })}
         />
@@ -71,6 +86,7 @@ const JobSeekerSignUp = (props) => {
             maxLength: {
               value: 20,
               message: "Password must contain 20 characters or fewer"
+
             }
             // validation below was in the R-H-F docs, but not sure how to apply it to passwords.
             // validate: value => value !== "admin" || "Nice try!"
@@ -103,23 +119,7 @@ const JobSeekerSignUp = (props) => {
               message: "Description must be 300 characters or less"
             }
           })}
-        />
-        <input
-          type="text"
-          placeholder="Company Location"
-          name="companies_location"
-          ref={register({
-            required: "You must enter a company location",
-            minLength: {
-              value: 2,
-              message: "Company location must contain at least 2 characters"
-            },
-            maxLength: {
-              value: 20,
-              message: "Company location must contain 20 characters or fewer"
-            }
-          })}
-        />
+ 
         <input
           type="text"
           placeholder="Industry"
@@ -136,10 +136,42 @@ const JobSeekerSignUp = (props) => {
             }
           })}
         />
-        <input type="submit" onClick={handleSubmit(onSubmit)} />
+       
+        <input 
+        type="text" 
+        placeholder="Location" 
+        name="seekers_location" 
+        ref={register({required: "You must enter a Location", 
+        minLength: {
+          value: 3,
+          message: 'Location must contain at least 3 characters'
+        },
+        maxLength: {
+          value: 20,
+          message: 'Location must contain 20 characters or fewer'
+        }
+        })} 
+        />
+        <input 
+        type="text" 
+        placeholder="Education" 
+        name="education" 
+        ref={register({required: "You must enter highest form of Education", 
+        minLength: {
+          value: 3,
+          message: 'Education must contain at least 3 characters'
+        },
+        maxLength: {
+          value: 20,
+          message: 'Education must contain 20 characters or fewer'
+        }
+        })} 
+        />
+        <input type='submit' onClick={handleSubmit(onSubmit)} />
       </form>
     </div>
   );
 };
+
 export default JobSeekerSignUp;
 
