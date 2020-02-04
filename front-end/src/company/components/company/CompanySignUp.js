@@ -1,11 +1,10 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 import { postData } from '../../actions/companyAPIAction';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const CompanySignUp = props => {
-	const { handleSubmit, register, errors, watch } = useForm({});
+	const { handleSubmit, register, errors } = useForm({});
 	const dispatch = useDispatch();
 
 	// const password = useRef({});
@@ -20,7 +19,7 @@ const CompanySignUp = props => {
 	};
 
 	return (
-		<div class='login-container'>
+		<div className='login-container'>
 			<h1>DROOM</h1>
 			<h2>Company Sign Up</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -132,7 +131,9 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
-				<input type='submit' onClick={handleSubmit(onSubmit)} />
+				<button type='submit' onClick={handleSubmit(onSubmit)}>
+					Submit
+				</button>
 			</form>
 		</div>
 	);

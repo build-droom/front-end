@@ -14,7 +14,8 @@ export const loginCompany = creds => dispatch => {
 			// return true;
 		})
 		.catch(err => {
-			console.log('action error', err.response.data.error);
-			dispatch({ type: LOGIN_FAILURE, payload: err.response.data.error });
+			console.log('err', err);
+			console.log('action error', err);
+			dispatch({ type: LOGIN_FAILURE, payload: err });
 		});
 };
