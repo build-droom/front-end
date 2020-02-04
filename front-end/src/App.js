@@ -7,6 +7,7 @@ import CompanyLoginForm from './company/components/company/CompanyLoginForm';
 import CompanySignUp from './company/components/company/CompanySignUp';
 import ProtectedRouteJobSeeker from './jobSeeker/utils/ProtectedRouteJobSeeker';
 import JobSeekerSignUp from './jobSeeker/components/JobSeekerSignUp';
+import JobSeekerMatches from './jobSeeker/components/JobSeekerMatches';
 import CompanyDashboard from './company/components/company/CompanyDashboard';
 import JobSeekerDashBoard from './jobSeeker/components/JobSeekerDashBoard';
 import AddJob from './company/components/company/AddJob';
@@ -36,6 +37,12 @@ function App() {
 					path='/jobseeker-dashboard'
 					component={JobSeekerDashBoard}
 				/>
+
+				<ProtectedRouteJobSeeker
+					path='/jobseeker-matches'
+					component={JobSeekerMatches}
+				/>
+
 				<ProtectedRouteCompany path='/add-a-job' component={AddJob} />
 				<ProtectedRouteCompany path='/current-jobs' component={CurrentJobs} />
 				<ProtectedRouteCompany

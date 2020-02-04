@@ -14,7 +14,7 @@ const CompanySignUp = props => {
 		console.log('hello from company', data);
 		dispatch(postData(data)).then(res => {
 			console.log('this is from signup', res);
-			props.history.push('/');
+			props.history.push('/company-login');
 		});
 	};
 

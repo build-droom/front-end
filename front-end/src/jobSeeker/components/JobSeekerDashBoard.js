@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JobSeekerDashBoard = () => {
+const JobSeekerDashBoard = props => {
 	return (
 		<div>
 			<h1>Dashboard</h1>
@@ -14,7 +14,9 @@ const JobSeekerDashBoard = () => {
 			{
 				//to jobseekers matches
 			}
-			<button> Matches</button>
+			<button onClick={() => props.history.push('/jobseeker-matches')}>
+				Matches
+			</button>
 		</div>
 	);
 };
