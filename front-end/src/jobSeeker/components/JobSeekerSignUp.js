@@ -1,11 +1,10 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
 import { postData } from '../actions/jobSeekerAPIAction';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 const JobSeekerSignUp = props => {
-	const { handleSubmit, register, errors, watch } = useForm({});
+	const { handleSubmit, register, errors } = useForm({});
 	const dispatch = useDispatch();
 
 	// const password = useRef({});
