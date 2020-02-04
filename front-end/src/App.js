@@ -14,6 +14,7 @@ import AddJob from './company/components/company/AddJob';
 import CurrentJobs from './company/components/company/CurrentJobs';
 import CompanyEditProfile from './company/components/company/CompanyEditProfile';
 import ProtectedRouteCompany from './company/utils/ProtectedRouteCompany';
+import {Footer} from './styledcomp/Home';
 
 function App() {
 	return (
@@ -40,7 +41,9 @@ function App() {
 					path='/edit-profile'
 					component={CompanyEditProfile}
 				/>
-				
+				<Footer>
+					2020 Droom, Inc
+				</Footer>
 			</div>
 		</Router>
 	);

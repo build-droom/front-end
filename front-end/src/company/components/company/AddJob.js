@@ -10,7 +10,7 @@ const AddJob = (props) => {
   const onSubmit = values => {
     console.log(values);
     // saveJob(job);
-    axios.post('ttps://droombwlambda.herokuapp.com/api/companies/job')
+    axios.post('ttps://droombwlambda.herokuapp.com/api/companies/job', values)
       .then((res) => {
         props.history.push('/currentjobs')
       })

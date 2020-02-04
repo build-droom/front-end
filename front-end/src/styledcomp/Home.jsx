@@ -3,7 +3,8 @@ import styled from 'styled-components';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const HomeStyled = styled.div`
-	padding: 14.1% 0;
+	// padding: 14.1% 0;
+	padding: 8% 0;
 	margin: 0;
 	display: flex;
 	flex-direction: column;
@@ -85,6 +86,14 @@ const TextArea = styled.textarea`
 	}
 `
 
+const Footer = styled.footer`
+	text-align:center;
+	padding: 10px 0;
+	background:#2F8A90;
+	font-size:1.1rem;
+	color:white;
+`
+
 export {
 	HomeStyled,
 	StyledHeading,
@@ -94,6 +103,7 @@ export {
 	LinkStyled,
 	TextArea,
 	ButtonStyled,
-	ButtonStyledSignUp
+	ButtonStyledSignUp,
+	Footer
 };
 	

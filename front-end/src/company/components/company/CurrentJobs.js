@@ -17,12 +17,11 @@ const CurrentJobs = props => {
 	}, []);
 	
 	return (
-
 		listings.map((job, index) => (
 			<div className='jobs' key={index}>
-				<p>{job.jobTitle}</p>
+				<p>{job.job_position}</p>
 				<p>{job.company_name}</p>
-				<p>{job.requiredExperience}</p>
+				<p>{job.experience_required}</p>
 				<p>{job.salary}</p>
 			</div>
 		))
