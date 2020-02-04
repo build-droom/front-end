@@ -15,6 +15,7 @@ const CurrentJobs = props => {
 				console.log('the data returned this error: ', error);
 			});
 	}, []);
+	
 	return (
 		<ul>
 			{props.map((job, index) => (

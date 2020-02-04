@@ -3,6 +3,16 @@ import { useForm } from 'react-hook-form';
 import styled from 'styled-components';
 import { postData } from '../actions/jobSeekerAPIAction';
 import { useDispatch, useSelector } from 'react-redux';
+import logo from '../../images/droom-logo.svg';
+import {
+	HomeStyled,
+	StyledHeading,
+	Form,
+	Input,
+	Links,
+	LinkStyled,
+	ButtonStyled
+} from '../../styledcomp/Home';
 
 const JobSeekerSignUp = props => {
 	const { handleSubmit, register, errors, watch } = useForm({});
@@ -20,8 +30,9 @@ const JobSeekerSignUp = props => {
 	};
 
 	return (
-		<div class='seeker-signup-container'>
-			<h1>DROOM</h1>
+		<HomeStyled>
+		{/* <div class='seeker-signup-container'> */}
+		<img src={logo} alt='droom_logo' className='logo' />
 			<h2>Job Seeker Sign Up</h2>
 
 			<form onSubmit={handleSubmit(onSubmit)}>
@@ -168,7 +179,8 @@ const JobSeekerSignUp = props => {
 				/>
 				<input type='submit' onClick={handleSubmit(onSubmit)} />
 			</form>
-		</div>
+		{/* </div> */}
+		</HomeStyled>
 	);
 };
 

@@ -36,8 +36,6 @@ const Home = (props) => {
     })
 	}
 
-	const swapUser = watch('swapUser');
-
 	return (
 		<HomeStyled>
 			<img src={logo} alt='droom_logo' className='logo' />
