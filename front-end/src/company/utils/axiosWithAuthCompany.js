@@ -7,7 +7,7 @@ export const getToken = () => {
 export const axiosWithAuthCompany = () => {
   return axios.create({
     // config object
-    baseURL: 'http://localhost:5000/api',
+    baseURL: 'https://droombwlambda.herokuapp.com/api/companies',
     headers: {
       Authorization: localStorage.getItem('companytoken')
     }

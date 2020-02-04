@@ -1,4 +1,4 @@
-import { axiosWithAuthCompany } from "../utils/axiosWithAuthCompany";
+import { axiosWithAuthJobSeeker  } from "../utils/axiosWithAuthJobSeeker";
 
 export const FETCH_DATA_START = "FETCH_DATA_START";
 export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
@@ -6,7 +6,7 @@ export const FETCH_DATA_FAILURE = "FETCH_DATA_FAILURE";
 
 export const getData = () => dispatch => {
   dispatch({ type: FETCH_DATA_START });
-  axiosWithAuthCompany()
+  axiosWithAuthJobSeeker()
     .get("/data")
     .then(res => {
       dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
@@ -24,7 +24,7 @@ export const DELETE_DATA_FAILURE = "DELETE_DATA_FAILURE";
 
 export const deleteData = () => dispatch => {
   dispatch({ type: DELETE_DATA_START });
-  axiosWithAuthCompany()
+  axiosWithAuthJobSeeker()
     .delete("/data")
     .then(res => {
       dispatch({ type: DELETE_DATA_SUCCESS, payload: res.data });
@@ -39,9 +39,9 @@ export const PUT_DATA_START = "PUT_DATA_START";
 export const PUT_DATA_SUCCESS = "PUT_DATA_SUCCESS";
 export const PUT_DATA_FAILURE = "PUT_DATA_FAILURE";
 
-export const putData = data => dispatch => {
+export const postData = data => dispatch => {
   dispatch({ type: PUT_DATA_START });
-  axiosWithAuthCompany()
+  axiosWithAuthJobSeeker()
     .put("/data", data)
     .then(res => {
       dispatch({ type: PUT_DATA_SUCCESS, payload: res.data });
@@ -56,10 +56,10 @@ export const PUSH_DATA_START = "PUSH_DATA_START";
 export const PUSH_DATA_SUCCESS = "PUSH_DATA_SUCCESS";
 export const PUSH_DATA_FAILURE = "PUSH_DATA_FAILURE";
 
-export const postData = data => dispatch => {
+export const pushData = data => dispatch => {
   dispatch({ type: PUSH_DATA_START });
-  return axiosWithAuthCompany()
-    .post("/register", data)
+  axiosWithAuthJobSeeker()
+    .push("/data", data)
     .then(res => {
       dispatch({ type: PUSH_DATA_SUCCESS, payload: res.data });
     })
