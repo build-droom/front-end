@@ -1,10 +1,15 @@
 import React from 'react';
 import './App.css';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Home from './Home';
+import Home_Job_Seeker_Login from './Home_Job_Seeker_Login';
 import CompanyLoginForm from './company/components/company/CompanyLoginForm';
+import JobSeekerLoginForm from './jobSeeker/components/JobSeekerLoginForm';
+
 import CompanySignUp from './company/components/company/CompanySignUp';
+
+import JobSeekerSignUp from './jobSeeker/components/JobSeekerSignUp';
 import CompanyDashboard from './company/components/company/CompanyDashboard';
+import JobSeekerDashboard from './jobSeeker/components/JobSeekerDashboard';
 import AddJob from './company/components/company/AddJob';
 import CurrentJobs from './company/components/company/CurrentJobs';
 import CompanyEditProfile from './company/components/company/CompanyEditProfile';
@@ -18,14 +23,20 @@ function App() {
 				<Link to='/job-seeker-login'>Login</Link>
 				<Link to='/job-seeker-signup'>Signup</Link>
 				<Link to='/company-dashboard'>Dashboard</Link> */}
-				<Route exact path='/' component={Home} />
+				<Route exact path='/' component={Home_Job_Seeker_Login} />
 				<Route exact path='/company-login' component={CompanyLoginForm} />
 				<Route path='/company-signup' component={CompanySignUp} />
+				<Route exact path='/job-seeker-login' component={JobSeekerLoginForm} />
+				<Route path='/job-seeker-signup' component={JobSeekerSignUp} />
 
 				{/* these will all be protected Routes */}
 				<ProtectedRouteCompany
 					path='/company-dashboard'
 					component={CompanyDashboard}
+				/>
+				<ProtectedRouteCompany
+					path='/jobseeker-dashboard'
+					component={JobSeekerDashboard}
 				/>
 				<ProtectedRouteCompany path='/add-a-job' component={AddJob} />
 				<ProtectedRouteCompany path='/current-jobs' component={CurrentJobs} />

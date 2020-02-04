@@ -24,6 +24,7 @@ const Form = styled.form`
 const Input = styled.input`
 	width: 60%;
 	margin: 1vh 0;
+	border-radius: 10px;
 `;
 
 const LinkStyled = styled(Link)`

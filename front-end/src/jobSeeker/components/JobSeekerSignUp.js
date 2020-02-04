@@ -1,13 +1,23 @@
-import React, { useRef } from 'react';
-import { useForm } from 'react-hook-form';
-import styled from 'styled-components';
+import React, { useRef } from "react";
+import { useForm } from "react-hook-form";
+import styled from "styled-components";
+import { postData } from '../actions/jobSeekerAPIAction'
+import { useDispatch, useSelector } from "react-redux";
 
-const JobSeekerSignUp = () => {
+const JobSeekerSignUp = (props) => {
+
   const { handleSubmit, register, errors, watch } = useForm({});
-  const password = useRef({});
-  password.current = watch('password', '');
-  const onSubmit = async data => {
-    alert(JSON.stringify(data));
+  const dispatch = useDispatch();
+  
+  // const password = useRef({});
+  // password.current = watch('password', '');
+
+  const onSubmit = data => {
+    console.log('hello from company', {data, "isCompany": "true"});
+    dispatch(postData(data)).then(res => {
+      console.log("this is from signup", res);
+      props.history.push("/");
+    });
   };
 
   return(
@@ -57,52 +67,76 @@ const JobSeekerSignUp = () => {
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
               message: 'Invalid email address'
+
             }
           })}
         />
         {errors.email && errors.email.message}
         <input
-          name='password'
-          placeholder='Password'
-          type='password'
+          name="password"
+          placeholder="Password"
+          type="password"
           ref={register({
-            required: 'You must enter a password',
+            required: "You must enter a password",
             // style error messages. maybe turn red? className='red'
             minLength: {
               value: 8,
-              message: 'Password must have a least 8 characters'
+              message: "Password must contain at least 8 characters"
+            },
+            maxLength: {
+              value: 20,
+              message: "Password must contain 20 characters or fewer"
+
             }
             // validation below was in the R-H-F docs, but not sure how to apply it to passwords.
             // validate: value => value !== "admin" || "Nice try!"
           })}
         />
-        {errors.password && <p className='red'>{errors.password.message}</p>}
-
-        <input 
-          name='password_repeat'
-          placeholder='Repeat Password'
-          type='password'
+        {errors.password && <p className="red">{errors.password.message}</p>}
+        
+        {/* <input
+          // name="passwordRepeat"
+          placeholder="Repeat Password"
+          type="password"
           ref={register({
             validate: value =>
-              value === password.current || 'The passwords do not match'
+              value === password.current || "The passwords do not match"
           })}
         />
-        {errors.password_repeat && <p>{errors.password_repeat.message}</p>}
-        <input 
-        type="text" 
-        placeholder="Occupation" 
-        name="occupation" 
-        ref={register({required: "You must enter an Occupation", 
-        minLength: {
-          value: 3,
-          message: 'Occupation must contain at least 3 characters'
-        },
-        maxLength: {
-          value: 20,
-          message: 'Occupation type must contain 20 characters or fewer'
-        }
-        })} 
+        {errors.passwordRepeat && <p>{errors.passwordRepeat.message}</p>} */}
+        <input
+          type="textarea"
+          placeholder="Company-descript"
+          name="companies_description"
+          ref={register({
+            required: "You must enter a company description",
+            minLength: {
+              value: 10,
+              message: "Description must be at least 10 characters long"
+            },
+            maxLength: {
+              value: 300,
+              message: "Description must be 300 characters or less"
+            }
+          })}
+ 
+        <input
+          type="text"
+          placeholder="Industry"
+          name="industry_type"
+          ref={register({
+            required: "You must enter an Industry type",
+            minLength: {
+              value: 2,
+              message: "Industry type must contain at least 2 characters"
+            },
+            maxLength: {
+              value: 20,
+              message: "Industry type must contain 20 characters or fewer"
+            }
+          })}
         />
+       
         <input 
         type="text" 
         placeholder="Location" 
@@ -139,5 +173,5 @@ const JobSeekerSignUp = () => {
   );
 };
 
-
 export default JobSeekerSignUp;
+

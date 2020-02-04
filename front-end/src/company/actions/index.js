@@ -1,48 +1,24 @@
-import { axiosWithAuthCompany } from '../utils/axiosWithAuthCompany';
-
-export const LOGIN_START = 'LOGIN_START';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
 
-
-export const loginCompany = creds => dispatch => {
-  dispatch({ type: LOGIN_START });
-  return axiosWithAuthCompany()
-    .post('/login', creds)
-    .then(res => {
-      localStorage.setItem('companytoken', res.data.payload);
-      dispatch({ type: LOGIN_SUCCESS });
-      // return true;
-    })
-    .catch(err => {
-      console.log('action error', err.response.data.error)
-      dispatch({ type: LOGIN_FAILURE,
-        payload: err.response.data.error
-              })
-    });
-};
+export {loginCompany} from './companyLoginAction'
+export {LOGIN_START}from  './companyLoginAction'
+export {LOGIN_SUCCESS}from  './companyLoginAction'
+export {LOGIN_FAILURE} from  './companyLoginAction'
 
 
+export  {FETCH_DATA_START}  from './companyAPIAction'
+export {FETCH_DATA_SUCCESS} from './companyAPIAction'
+export  {FETCH_DATA_FAILURE} from './companyAPIAction'
 
 
-
-export const FETCH_DATA_START = 'FETCH_DATA_START';
-export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
-export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
-
-export const getData = () => dispatch => {
-  dispatch({ type: FETCH_DATA_START });
-  axiosWithAuthCompany()
-    .get('/data')
-    .then(res => {
-      dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data.data });
-    })
-    .catch(err => {
-      console.log(err.response);
-      dispatch({ type: FETCH_DATA_FAILURE, payload: err.response.data.error });
-    });
-};
-
+export {PUT_DATA_START} from './companyAPIAction'
+export {PUT_DATA_SUCCESS}  from './companyAPIAction'
+export {PUT_DATA_FAILURE} from './companyAPIAction'
+export {PUSH_DATA_START} from './companyAPIAction'
+export {PUSH_DATA_SUCCESS} from './companyAPIAction'
+export {PUSH_DATA_FAILURE} from './companyAPIAction'
+export  {DELETE_DATA_START} from './companyAPIAction'
+export  {DELETE_DATA_SUCCESS} from './companyAPIAction'
+export  {DELETE_DATA_FAILURE} from './companyAPIAction'
 
 

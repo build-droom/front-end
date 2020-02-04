@@ -2,7 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, Route } from 'react-router-dom'
 import styled from 'styled-components';
-import {loginCompany} from '../../actions/'
+import {loginJobSeeker} from '../actions/jobSeekerLoginAction'
+
 import { useDispatch, useSelector } from 'react-redux'
 
 
