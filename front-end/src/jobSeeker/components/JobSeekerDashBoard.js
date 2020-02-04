@@ -1,6 +1,6 @@
 import React from 'react';
 
-const JobSeekerDashboard = () => {
+const JobSeekerDashBoard = () => {
 	return (
 		<div>
 			<h1>Dashboard</h1>
@@ -11,4 +11,4 @@ const JobSeekerDashboard = () => {
 	);
 };
 
-export default JobSeekerDashboard;
+export default JobSeekerDashBoard;
