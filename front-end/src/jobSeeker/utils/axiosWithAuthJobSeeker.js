@@ -7,7 +7,7 @@ export const getToken = () => {
 export const axiosWithAuthJobSeeker = () => {
 	return axios.create({
 		// config object
-		baseURL: 'https://droombwlambda.herokuapp.com/api/seekers',
+		baseURL: 'https://droombwlambda.herokuapp.com/api',
 		headers: {
 			Authorization: localStorage.getItem('jobseekertoken'),
 			Authorization: localStorage.getItem('jobseekerid')

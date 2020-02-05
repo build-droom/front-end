@@ -8,7 +8,7 @@ export const loginJobSeeker = creds => dispatch => {
 	console.log('inside jseeker action');
 	dispatch({ type: LOGIN_START1 });
 	return axiosWithAuthJobSeeker()
-		.post('/login', creds)
+		.post('seekers/login', creds)
 		.then(res => {
 			console.log('inside jseeker action');
 

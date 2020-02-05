@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { axiosWithAuthJobSeeker } from './../utils/axiosWithAuthJobSeeker';
 
-const JobSeekerList = () => {
-    return (
-        <div>
-            This is the Job seeker list
-        </div>
-    )
-}
+const JobSeekerMatches = () => {
+	useEffect(() => {
+		axiosWithAuthJobSeeker()
+			.get('/matches')
+			.then(res => {
+				console.log(res);
+			})
+			.catch(err => console.log(err));
+	}, []);
 
-export default JobSeekerList
+	return <div>This is the Job seeker list</div>;
+};
+
+export default JobSeekerMatches;

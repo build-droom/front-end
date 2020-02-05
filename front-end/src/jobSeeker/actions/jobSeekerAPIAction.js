@@ -41,7 +41,7 @@ export const PUT_DATA_FAILURE = 'PUT_DATA_FAILURE';
 export const putData = data => dispatch => {
 	dispatch({ type: PUT_DATA_START });
 	axiosWithAuthJobSeeker()
-		.put('/register', data)
+		.put('seekers/register', data)
 		.then(res => {
 			dispatch({ type: PUT_DATA_SUCCESS, payload: res.data });
 		})
