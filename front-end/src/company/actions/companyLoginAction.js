@@ -12,6 +12,7 @@ export const loginCompany = values => dispatch => {
 		.then(res => {
 			console.log('please work ', res);
 			localStorage.setItem('companytoken', res.data.token);
+			localStorage.setItem('companyid', res.data.company.id);
 			dispatch({ type: LOGIN_SUCCESS });
 			// return true;
 		})

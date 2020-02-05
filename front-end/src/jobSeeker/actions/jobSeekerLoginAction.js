@@ -13,6 +13,7 @@ export const loginJobSeeker = creds => dispatch => {
 			console.log('inside jseeker action');
 
 			localStorage.setItem('jobseekertoken', res.data.token);
+			localStorage.setItem('jobseekerid', res.data.seeker.id);
 			dispatch({ type: LOGIN_SUCCESS1 });
 			// return true;
 		})

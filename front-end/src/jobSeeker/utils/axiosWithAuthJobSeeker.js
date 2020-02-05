@@ -9,7 +9,8 @@ export const axiosWithAuthJobSeeker = () => {
 		// config object
 		baseURL: 'https://droombwlambda.herokuapp.com/api/seekers',
 		headers: {
-			Authorization: localStorage.getItem('jobseekertoken')
+			Authorization: localStorage.getItem('jobseekertoken'),
+			Authorization: localStorage.getItem('jobseekerid')
 		}
 	});
 };
