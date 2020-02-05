@@ -10,7 +10,7 @@ export const loginJobSeeker = creds => dispatch => {
 	return axiosWithAuthJobSeeker()
 		.post('seekers/login', creds)
 		.then(res => {
-			console.log('inside jseeker action');
+			console.log('inside jseeker action', res.data);
 
 			localStorage.setItem('jobseekertoken', res.data.token);
 			localStorage.setItem('jobseekerid', res.data.seeker.id);

@@ -18,7 +18,7 @@ export { PUSH_DATA_START } from './companyAPIAction';
 export { PUSH_DATA_SUCCESS } from './companyAPIAction';
 export { PUSH_DATA_FAILURE } from './companyAPIAction';
 
-export { deleteData } from './companyAPIAction';
+export { deleteProfile } from './companyAPIAction';
 export { DELETE_DATA_START } from './companyAPIAction';
 export { DELETE_DATA_SUCCESS } from './companyAPIAction';
 export { DELETE_DATA_FAILURE } from './companyAPIAction';

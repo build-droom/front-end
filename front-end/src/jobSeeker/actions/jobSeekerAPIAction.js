@@ -4,16 +4,17 @@ export const FETCH_DATA_START = 'FETCH_DATA_START';
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS';
 export const FETCH_DATA_FAILURE = 'FETCH_DATA_FAILURE';
 
-export const getData = () => dispatch => {
+export const getData = id => dispatch => {
 	dispatch({ type: FETCH_DATA_START });
 	axiosWithAuthJobSeeker()
-		.get('/data')
+		.get(`/matches/matchseeker/${id}`)
 		.then(res => {
+			console.log(res);
 			dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data });
 		})
 		.catch(err => {
-			console.log(err.response);
-			dispatch({ type: FETCH_DATA_FAILURE, payload: err.response.data.error });
+			console.log(err);
+			dispatch({ type: FETCH_DATA_FAILURE, payload: err });
 		});
 };
 
@@ -67,3 +68,29 @@ export const postData = data => dispatch => {
 			dispatch({ type: PUSH_DATA_FAILURE, payload: err });
 		});
 };
+
+// export const getJob = id => dispatch => {
+// 	dispatch({ JOB_FILTER_START });
+// 	return axiosWithAuthJobSeeker()
+// 		.get(`/matches/matchseeker/${id}`)
+// 		.then(res => {
+// 			console.log(res);
+// 			dispatch({ type: JOB_FILTER_SUCCESS, payload: res.data });
+// 		})
+
+// 		.catch(err => {
+// 			console.log(err);
+// 			dispatch({ type: PUSH_DATA_FAILURE, payload: err });
+// 		});
+// };
+
+/* export const getJob = () => dispatch => {
+	dispatch({ type: FETCH_JOB_START });
+	axios
+		.get(`https://randomuser.me/api`)
+		.then(res =>
+			dispatch({ type: FETCH_JOB_SUCCESS, payload: res.data.results[0] })
+		)
+		.catch(err => dispatch({ type: FETCH_JOB_FAILURE, payload: err }));
+};
+ */
