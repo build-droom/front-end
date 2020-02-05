@@ -1,9 +1,8 @@
 import React from 'react';
 import './App.css';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import Home_Job_Seeker_Login from './Home_Job_Seeker_Login';
 import CompanyLoginForm from './company/components/company/CompanyLoginForm';
-
 import CompanySignUp from './company/components/company/CompanySignUp';
 import ProtectedRouteJobSeeker from './jobSeeker/utils/ProtectedRouteJobSeeker';
 import JobSeekerSignUp from './jobSeeker/components/JobSeekerSignUp';
@@ -14,7 +13,7 @@ import AddJob from './company/components/company/AddJob';
 import CurrentJobs from './company/components/company/CurrentJobs';
 import CompanyEditProfile from './company/components/company/CompanyEditProfile';
 import ProtectedRouteCompany from './company/utils/ProtectedRouteCompany';
-import {Footer} from './styledcomp/Home';
+import { Footer } from './styledcomp/Home';
 
 function App() {
 	return (
@@ -46,9 +45,7 @@ function App() {
 					path='/edit-profile'
 					component={CompanyEditProfile}
 				/>
-				<Footer>
-					2020 Droom, Inc
-				</Footer>
+				<Footer>2020 Droom, Inc</Footer>
 
 				{/* Temporary Nav Links */}
 				<Link to='/'>Home</Link>
