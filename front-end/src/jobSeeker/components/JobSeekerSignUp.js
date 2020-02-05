@@ -23,7 +23,7 @@ const JobSeekerSignUp = props => {
 	// password.current = watch('password', '');
 
 	const onSubmit = data => {
-		console.log('hello from company', { data, isCompany: 'true' });
+		console.log('hello from company', { data, experienced: 'true' });
 		dispatch(postData(data)).then(res => {
 			console.log('this is from signup', res);
 			props.history.push('/');
@@ -44,11 +44,11 @@ const JobSeekerSignUp = props => {
 					ref={register({
 						required: 'You must enter a username',
 						minLength: {
-							value: 6,
+							value: 1,
 							message: 'Username must contain at least 6 characters'
 						},
 						maxLength: {
-							value: 15,
+							value: 9,
 							message: 'Username must contain 15 characters or less'
 						}
 					})}
@@ -60,7 +60,7 @@ const JobSeekerSignUp = props => {
 					ref={register({
 						required: 'You must enter your Name',
 						minLength: {
-							value: 6,
+							value: 1,
 							message: 'Name must contain at least 6 characters'
 						},
 						maxLength: {
@@ -90,7 +90,7 @@ const JobSeekerSignUp = props => {
 						required: 'You must enter a password',
 						// style error messages. maybe turn red? className='red'
 						minLength: {
-							value: 8,
+							value: 2,
 							message: 'Password must contain at least 8 characters'
 						},
 						maxLength: {
@@ -103,7 +103,7 @@ const JobSeekerSignUp = props => {
 				/>
 				{errors.password && <p className='red'>{errors.password.message}</p>}
 
-				{/* <Input
+				{/* <input
           // name="passwordRepeat"
           placeholder="Repeat Password"
           type="password"
@@ -115,33 +115,17 @@ const JobSeekerSignUp = props => {
         {errors.passwordRepeat && <p>{errors.passwordRepeat.message}</p>} */}
 				{/* <TextArea
 					type='textarea'
-					placeholder='Description'
-					name='companies_description'
+					placeholder='occupation'
+					name='occupation'
 					ref={register({
 						required: 'You must enter a company description',
 						minLength: {
-							value: 10,
+							value: 2,
 							message: 'Description must be at least 10 characters long'
 						},
 						maxLength: {
 							value: 300,
 							message: 'Description must be 300 characters or less'
-						}
-					})}
-				/> */}
-				<Input
-					type='text'
-					placeholder='Industry'
-					name='industry_type'
-					ref={register({
-						required: 'You must enter an Industry type',
-						minLength: {
-							value: 2,
-							message: 'Industry type must contain at least 2 characters'
-						},
-						maxLength: {
-							value: 20,
-							message: 'Industry type must contain 20 characters or fewer'
 						}
 					})}
 				/>
@@ -178,7 +162,7 @@ const JobSeekerSignUp = props => {
 						}
 					})}
 				/>
-				<ButtonStyledSignUp type='submit' onClick={handleSubmit(onSubmit)}>Submit</ButtonStyledSignUp>
+				<ButtonStyledSignUp>Submit</ButtonStyledSignUp>
 			</Form>
 		{/* </div> */}
 		</HomeStyled>

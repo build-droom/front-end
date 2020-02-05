@@ -28,7 +28,7 @@ const CompanySignUp = props => {
 		console.log('hello from company', data);
 		dispatch(postData(data)).then(res => {
 			console.log('this is from signup', res);
-			props.history.push('/');
+			props.history.push('/company-login');
 		});
 	};
 
@@ -104,7 +104,7 @@ const CompanySignUp = props => {
 					ref={register({
 						required: 'You must enter a company description',
 						minLength: {
-							value: 10,
+							value: 2,
 							message: 'Description must be at least 10 characters long'
 						},
 						maxLength: {

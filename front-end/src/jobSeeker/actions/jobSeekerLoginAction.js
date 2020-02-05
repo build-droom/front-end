@@ -1,22 +1,25 @@
 import { axiosWithAuthJobSeeker } from '../utils/axiosWithAuthJobSeeker';
 
-export const LOGIN_START = 'LOGIN_START';
-export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
-export const LOGIN_FAILURE = 'LOGIN_FAILURE';
+export const LOGIN_START1 = 'LOGIN_START1';
+export const LOGIN_SUCCESS1 = 'LOGIN_SUCCESS1';
+export const LOGIN_FAILURE1 = 'LOGIN_FAILURE1';
 
 export const loginJobSeeker = creds => dispatch => {
-  dispatch({ type: LOGIN_START });
-  return axiosWithAuthJobSeeker()
-    .post('/login', creds)
-    .then(res => {
-      localStorage.setItem('companytoken', res.data.payload);
-      dispatch({ type: LOGIN_SUCCESS });
-      // return true;
-    })
-    .catch(err => {
-      console.log('action error', err.response.data.error)
-      dispatch({ type: LOGIN_FAILURE,
-        payload: err.response.data.error
-              })
-    });
+	console.log('inside jseeker action');
+	dispatch({ type: LOGIN_START1 });
+	return axiosWithAuthJobSeeker()
+		.post('/login', creds)
+		.then(res => {
+			console.log('inside jseeker action');
+
+			localStorage.setItem('jobseekertoken', res.data.token);
+			dispatch({ type: LOGIN_SUCCESS1 });
+			// return true;
+		})
+		.catch(err => {
+			console.log('inside jseeker error action');
+
+			console.log('action error', err);
+			dispatch({ type: LOGIN_FAILURE1, payload: err });
+		});
 };

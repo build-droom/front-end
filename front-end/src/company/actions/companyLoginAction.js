@@ -4,11 +4,13 @@ export const LOGIN_START = 'LOGIN_START';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_FAILURE = 'LOGIN_FAILURE';
 
-export const loginCompany = creds => dispatch => {
+export const loginCompany = values => dispatch => {
+	console.log('hereee');
 	dispatch({ type: LOGIN_START });
 	return axiosWithAuthCompany()
-		.post('/login', creds)
+		.post('/companies/login', values)
 		.then(res => {
+			console.log('please work ', res);
 			localStorage.setItem('companytoken', res.data.token);
 			dispatch({ type: LOGIN_SUCCESS });
 			// return true;
