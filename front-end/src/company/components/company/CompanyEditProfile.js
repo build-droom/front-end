@@ -1,31 +1,52 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useDispatch } from 'react-redux';
-import { deleteData } from '../../actions/';
+import { deleteProfile } from '../../actions/';
 
 import { axiosWithAuthCompany } from '../../utils/axiosWithAuthCompany';
 
 const CompanyEditProfile = props => {
 	const { handleSubmit, register, errors } = useForm({});
-
+	const id = localStorage.getItem('companyid');
 	const dispatch = useDispatch();
 
-	const onSubmit = values => {
+	const [info, setInfo] = useState('');
+
+	useEffect(() => {
 		axiosWithAuthCompany()
-			.put('/companies', values)
+			.get(`/companies/${id}`)
+			.then(res => {
+				console.log('this is edit profile', res);
+				setInfo(res.data);
+			})
+			.catch(err => console.log(err));
+	}, []);
+
+	const onSubmit = values => {
+		console.log('values', values);
+		axiosWithAuthCompany()
+			.put(`/companies/${id}`, values)
 			.then(res => {
 				console.log('this is edit profile', res);
 				props.history.push('/company-dashboard');
-			});
+			})
+			.catch(err => console.log(err));
 	};
 
-	const deleteProfile = data => {
-		console.log('hello from company', data);
-		dispatch(deleteData(data)).then(res => {
-			console.log('this is from signup', res);
-			props.history.push('/');
-		});
+	const deleteProfile = () => {
+		// dispatch(deleteProfile(id));
+		console.log('this is the id', id);
+		axiosWithAuthCompany()
+			.delete(`/companies/${id}`)
+			.then(res => {
+				props.history.push('/company-login');
+
+				console.log(res);
+			})
+			.catch(err => {
+				console.log('delete errrrrrror  ', err.response);
+			});
 	};
 
 	return (
@@ -35,7 +56,16 @@ const CompanyEditProfile = props => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<input
 					type='text'
+					placeholder={id}
+					name='id'
+					value={id}
+					ref={register}
+				/>
+
+				<input
+					type='text'
 					placeholder='Company'
+					defaultValue={info.company_name}
 					name='company_name'
 					ref={register({
 						required: 'You must enter a company name',
@@ -52,13 +82,10 @@ const CompanyEditProfile = props => {
 				<input
 					name='company_email'
 					placeholder='Email'
-					type='email'
+					defaultValue={info.company_email}
+					type='text'
 					ref={register({
-						required: 'You must enter an Email',
-						pattern: {
-							value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
-							message: 'Invalid email address'
-						}
+						required: 'You must enter an Email'
 					})}
 				/>
 				{errors.email && errors.email.message}
@@ -70,7 +97,7 @@ const CompanyEditProfile = props => {
 						required: 'You must enter a password',
 						// style error messages. maybe turn red? className='red'
 						minLength: {
-							value: 8,
+							value: 1,
 							message: 'Password must contain at least 8 characters'
 						},
 						maxLength: {
@@ -85,12 +112,13 @@ const CompanyEditProfile = props => {
 
 				<input
 					type='textarea'
-					placeholder='Company'
-					name='company_description'
+					placeholder='Company descript'
+					name='companies_description'
+					defaultValue={info.companies_description}
 					ref={register({
 						required: 'You must enter a company description',
 						minLength: {
-							value: 10,
+							value: 1,
 							message: 'Description must be at least 10 characters long'
 						},
 						maxLength: {
@@ -102,7 +130,8 @@ const CompanyEditProfile = props => {
 				<input
 					type='text'
 					placeholder='Company Location'
-					name='company_location'
+					name='companies_location'
+					defaultValue={info.companies_location}
 					ref={register({
 						required: 'You must enter a company location',
 						minLength: {
@@ -119,6 +148,7 @@ const CompanyEditProfile = props => {
 					type='text'
 					placeholder='Industry'
 					name='industry_type'
+					defaultValue={info.industry_type}
 					ref={register({
 						required: 'You must enter an Industry type',
 						minLength: {
@@ -131,7 +161,7 @@ const CompanyEditProfile = props => {
 						}
 					})}
 				/>
-				<button onClick={onSubmit}>Save</button>
+				<button type='submit'>Save</button>
 			</form>
 			<button onClick={deleteProfile}>Delete Profile</button>
 		</div>

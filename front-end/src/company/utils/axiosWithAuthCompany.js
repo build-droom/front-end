@@ -10,6 +10,7 @@ export const axiosWithAuthCompany = () => {
 		baseURL: 'https://droombwlambda.herokuapp.com/api/',
 		headers: {
 			Authorization: localStorage.getItem('companytoken')
+			// Authorization: localStorage.getItem('companyid')
 		}
 	});
 };
