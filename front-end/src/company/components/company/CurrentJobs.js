@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+
 const CurrentJobs = () => {
 	const [information, setInformation] = useState([]);
 
@@ -8,6 +9,7 @@ const CurrentJobs = () => {
 		axios()
 			.get('/jobs/company/5')
 			.then(response => {
+
 				console.log('This is the data', response);
 				setInformation(response.data);
 			})
@@ -15,12 +17,17 @@ const CurrentJobs = () => {
 				console.log('the data returned this error: ', error);
 			});
 	}, []);
+	
 	return (
-		<ul>
-			{/* {information.map((job, index) => (
-				<li key={index}>{job}</li>
-			))} */}
-		</ul>
+		information.map((job, index) => (
+			<div className='jobs' key={index}>
+				<p>{job.job_position}</p>
+				<p>{job.company_name}</p>
+				<p>{job.experience_required}</p>
+				<p>{job.salary}</p>
+			</div>
+		))
+
 	);
 };
 
