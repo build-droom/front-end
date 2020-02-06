@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { axiosWithAuthJobSeeker } from '../utils/axiosWithAuthJobSeeker';
 import { useSwipeable } from 'react-swipeable';
+import Cards, { Card } from 'react-swipe-card';
+
 import {
 	HomeStyled,
 	StyledHeading,
@@ -12,6 +14,7 @@ import {
 	ButtonStyled,
 	PurpleText,
 	Highlighted,
+	Button,
 	HoverText,
 	EditDisplayFlex,
 	DescriptionStyled,
@@ -23,7 +26,7 @@ import {
 	CardDiv
 } from '../../styledcomp/Home';
 
-const JobSeekerSwipe = () => {
+const JobSeekerSwipe = props => {
 	const id = localStorage.getItem('jobseekerid');
 	console.log(id);
 
@@ -69,7 +72,7 @@ const JobSeekerSwipe = () => {
 	const nofunction = () => {
 		//call random
 		randomfunction();
-		console.log('nooooooooooo')
+		console.log('nooooooooooo');
 	};
 
 	// const handlersWorking = useSwipeable({
@@ -80,27 +83,54 @@ const JobSeekerSwipe = () => {
 
 	const handlersBugged = useSwipeable({
 		onSwipedLeft: nofunction,
-		trackMouse: true,
-	})
+		onSwipedRight: nofunction,
+		trackMouse: true
+	});
 
-
-	if (typeof state.companyAPIReducer.data[number] === 'undefined' || state.companyAPIReducer.data[number] === null) {
+	if (
+		typeof state.companyAPIReducer.data[number] === 'undefined' ||
+		state.companyAPIReducer.data[number] === null
+	) {
 		return (
 			<HomeStyled>
+				<Button onClick={() => props.history.goBack()}>Back</Button>
+
 				<StyledHeading>No more jobs, </StyledHeading>
 				<StyledHeading>time to go back to Tinder</StyledHeading>
-		</HomeStyled>)
-
+			</HomeStyled>
+		);
 	} else {
 		return (
-			<CardDiv {...handlersBugged}>
-				<StyledHeading><p>	Company:</p>   {state.companyAPIReducer.data[number].company}</StyledHeading>
-				<StyledHeading>Salary: {state.companyAPIReducer.data[number].salary}</StyledHeading>
-				<StyledHeading>Job: {state.companyAPIReducer.data[number].job_position}</StyledHeading>
-				<StyledHeading>Educ: {state.companyAPIReducer.data[number].education}</StyledHeading>
-				{/* <DashboardButton onClick={yesfunction}>Yes</DashboardButton>
-				<DashboardButton onClick={nofunction}>No</DashboardButton> */}
-			</CardDiv>
+			// <>
+			// 	<Button onClick={() => props.history.goBack()}>Back</Button>
+
+			// 	<CardDiv {...handlersBugged}>
+			// 		<StyledHeading>
+			// 			<p> Company:</p> {state.companyAPIReducer.data[number].company}
+			// 		</StyledHeading>
+			// 		<StyledHeading>
+			// 			Salary: {state.companyAPIReducer.data[number].salary}
+			// 		</StyledHeading>
+			// 		<StyledHeading>
+			// 			Job: {state.companyAPIReducer.data[number].job_position}
+			// 		</StyledHeading>
+			// 		<StyledHeading>
+			// 			Educ: {state.companyAPIReducer.data[number].education}
+			// 		</StyledHeading>
+			// 		<DashboardButton onClick={yesfunction}>Yes</DashboardButton>
+			// 		<DashboardButton onClick={nofunction}>No</DashboardButton>
+			// 	</CardDiv>
+			// </>
+
+			<>
+				<Cards onEnd={nofunction} className='master-root'>
+					{state.companyAPIReducer.data.map(item => (
+						<Card onSwipeLeft={nofunction} onSwipeRight={nofunction}>
+							<h2>hi</h2>
+						</Card>
+					))}
+				</Cards>
+			</>
 		);
 	}
 };

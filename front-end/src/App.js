@@ -8,6 +8,7 @@ import ProtectedRouteJobSeeker from './jobSeeker/utils/ProtectedRouteJobSeeker';
 import JobSeekerSignUp from './jobSeeker/components/JobSeekerSignUp';
 import JobSeekerSwipe from './jobSeeker/components/JobSeekerSwipe';
 import JobSeekerMatches from './jobSeeker/components/JobSeekerMatches';
+import JobSeekerEditProfile from './jobSeeker/components/JobSeekerEditProfile';
 import CompanyDashboard from './company/components/company/CompanyDashboard';
 import JobSeekerDashBoard from './jobSeeker/components/JobSeekerDashBoard';
 import AddJob from './company/components/company/AddJob';
@@ -36,6 +37,11 @@ function App() {
 				/>
 
 				<ProtectedRouteJobSeeker
+					path='/jobseeker-profile'
+					component={JobSeekerEditProfile}
+				/>
+
+				<ProtectedRouteJobSeeker
 					path='/jobseeker-matches'
 					component={JobSeekerMatches}
 				/>
@@ -53,7 +59,6 @@ function App() {
 				/>
 
 				{/* Temporary Nav Links */}
-				<Link to='/company-dashboard'>Dashboard</Link>
 			</div>
 		</Router>
 	);

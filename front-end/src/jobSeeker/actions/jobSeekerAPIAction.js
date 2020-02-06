@@ -59,7 +59,7 @@ export const PUSH_DATA_FAILURE = 'PUSH_DATA_FAILURE';
 export const postData = data => dispatch => {
 	dispatch({ type: PUSH_DATA_START });
 	return axiosWithAuthJobSeeker()
-		.post('/register', data)
+		.post('seekers/register', data)
 		.then(res => {
 			dispatch({ type: PUSH_DATA_SUCCESS, payload: res.data });
 		})
