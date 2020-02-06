@@ -1,23 +1,53 @@
 import React from 'react';
+import {
+	HomeStyled,
+	StyledHeading,
+	Form,
+	Input,
+	Links,
+	LinkStyled,
+	ButtonStyled,
+	PurpleText,
+	Highlighted,
+	HoverText,
+	EditDisplayFlex,
+	DescriptionStyled,
+	StyledDashboardHeading,
+	DashboardButton,
+	DashboardCenter,
+	EditButtonDisplayFlex,
+	EditScreenText
+} from '../../styledcomp/Home';
 
 const JobSeekerDashBoard = props => {
 	return (
-		<div>
-			<h1>Dashboard</h1>
-			<input placeholder='location' />
-			<input placeholder='industry' />
-			<input placeholder='salary' />
+		<HomeStyled>
+			<StyledHeading>Dashboard</StyledHeading>
+			<Form className='jobSeekerDashboard'>
+			<Input 
+			name='seekers_location'
+			placeholder='Location'
+			/>
+			<Input 
+			name='job_industry'
+			placeholder='Industry' 
+			/>
+			<Input 
+			name='seekers_salary'
+			placeholder='Salary' 
+			/>
 			{
 				//to jobseekers swipe
 			}
-			<button>Search</button>
+			<DashboardButton>Search</DashboardButton>
 			{
 				//to jobseekers matches
 			}
-			<button onClick={() => props.history.push('/jobseeker-matches')}>
+			<DashboardButton onClick={() => props.history.push('/jobseeker-matches')}>
 				Matches
-			</button>
-		</div>
+			</DashboardButton>
+			</Form>
+		</HomeStyled>
 	);
 };
 

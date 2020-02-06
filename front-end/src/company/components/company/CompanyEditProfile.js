@@ -1,5 +1,19 @@
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
+import {
+	HomeStyled,
+	StyledHeading,
+	Form,
+	Input,
+	Links,
+	LinkStyled,
+	ButtonStyled,
+	PurpleText,
+	Highlighted,
+	HoverText,
+	StyledDashboardHeading,
+	DashboardButton
+} from '../../../styledcomp/Home';
 
 import { useDispatch } from 'react-redux';
 import { deleteData } from '../../actions/';
@@ -29,11 +43,11 @@ const CompanyEditProfile = props => {
 	};
 
 	return (
-		<div class='company-edit-container'>
-			<h1>DROOM</h1>
-			<h2>Company Edit Profile</h2>
-			<form onSubmit={handleSubmit(onSubmit)}>
-				<input
+		<HomeStyled class='company-edit-container'>
+			<StyledDashboardHeading>DROOM</StyledDashboardHeading>
+			<Form onSubmit={handleSubmit(onSubmit)}>
+				<PurpleText className='addJobText'>Edit Profile</PurpleText>
+				<Input
 					type='text'
 					placeholder='Company'
 					name='company_name'
@@ -49,7 +63,7 @@ const CompanyEditProfile = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					name='company_email'
 					placeholder='Email'
 					type='email'
@@ -62,7 +76,7 @@ const CompanyEditProfile = props => {
 					})}
 				/>
 				{errors.email && errors.email.message}
-				<input
+				<Input
 					name='password'
 					placeholder='Password'
 					type='password'
@@ -83,7 +97,7 @@ const CompanyEditProfile = props => {
 				/>
 				{errors.password && <p className='red'>{errors.password.message}</p>}
 
-				<input
+				<Input
 					type='textarea'
 					placeholder='Company'
 					name='company_description'
@@ -99,7 +113,7 @@ const CompanyEditProfile = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					type='text'
 					placeholder='Company Location'
 					name='company_location'
@@ -115,7 +129,7 @@ const CompanyEditProfile = props => {
 						}
 					})}
 				/>
-				<input
+				<Input
 					type='text'
 					placeholder='Industry'
 					name='industry_type'
@@ -131,10 +145,10 @@ const CompanyEditProfile = props => {
 						}
 					})}
 				/>
-				<button onClick={onSubmit}>Save</button>
-			</form>
+				<DashboardButton onClick={onSubmit}>Save</DashboardButton>
+			</Form>
 			<button onClick={deleteProfile}>Delete Profile</button>
-		</div>
+		</HomeStyled>
 	);
 };
 

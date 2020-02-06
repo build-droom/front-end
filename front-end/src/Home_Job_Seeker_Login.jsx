@@ -13,7 +13,10 @@ import {
 	Input,
 	Links,
 	LinkStyled,
-	ButtonStyled
+	ButtonStyled,
+	PurpleText,
+	Highlighted,
+	HoverText
 } from './styledcomp/Home';
 
 //creating here the login form for the user with a route and link to the company's
@@ -37,15 +40,15 @@ const Home_Job_Seeker_Login = props => {
 			<img src={logo} alt='droom_logo' className='logo' />
 			<StyledHeading>Sign In</StyledHeading>
 			<Links>
-				<LinkStyled>Job Applicant</LinkStyled>
+				<LinkStyled><Highlighted>Job Applicant</Highlighted></LinkStyled>
 				<LinkStyled onClick={() => props.history.push('/company-login')}>
-					Company
+					<HoverText>Company</HoverText>
 				</LinkStyled>
 			</Links>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<Input
 					name='username'
-					placeholder='username'
+					placeholder='Username'
 					ref={register({
 						required: 'Required Field'
 					})}
@@ -69,9 +72,11 @@ const Home_Job_Seeker_Login = props => {
 				{errors.password && <p className='red'>{errors.password.message}</p>}
 				{/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword' /> */}
-				<LinkStyled>Forgot Password?</LinkStyled>
+				<LinkStyled>
+				<PurpleText>Forgot Password?</PurpleText>
+				</LinkStyled>
 				<LinkStyled to='/job-seeker-signup'>
-					Don't have an account? Sign up!
+					<PurpleText>Don't have an account? Sign up!</PurpleText>
 				</LinkStyled>
 				<ButtonStyled type='submit'>Sign in</ButtonStyled>
 			</Form>

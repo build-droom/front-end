@@ -2,6 +2,20 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import { postJob } from './../../actions/companyAPIAction';
 import { useDispatch } from 'react-redux';
+import {
+	HomeStyled,
+	StyledHeading,
+	Form,
+	Input,
+	Links,
+	LinkStyled,
+	ButtonStyled,
+	PurpleText,
+	Highlighted,
+	HoverText,
+	StyledDashboardHeading,
+	DashboardButton
+} from '../../../styledcomp/Home';
 
 const AddJob = props => {
 	const { handleSubmit, register, errors } = useForm();
@@ -48,13 +62,18 @@ const AddJob = props => {
 			props.history.push('/company-dashboard');
 		});
 	};
+
 	// need to refresh form after submission
 	return (
-		<div>
-			<h3>Add a Job</h3>
-			<form className='addJob' onSubmit={handleSubmit(onSubmit)}>
-				<input
-					name='jobTitle'
+		<HomeStyled>
+			<StyledDashboardHeading>DROOM</StyledDashboardHeading>
+			{/* Insert company img if we get time*/}
+
+			
+			<Form className='addJob' onSubmit={handleSubmit(onSubmit)}>
+				<PurpleText className='addJobText'>Add Job</PurpleText>
+				<Input
+					name='job_position'
 					placeholder='Job Title'
 					ref={register({
 						required: 'Job Title required',
@@ -68,9 +87,10 @@ const AddJob = props => {
 						}
 					})}
 				/>
-				{errors.jobTitle && errors.jobTitle.message}
-				<input
-					name='location'
+				{errors.job_position && errors.job_position.message}
+
+				<Input
+					name='job_location'
 					placeholder='Location'
 					ref={register({
 						required: 'Location required',
@@ -84,18 +104,18 @@ const AddJob = props => {
 						}
 					})}
 				/>
-				{errors.location && errors.location.message}
+				{errors.job_location && errors.job_location.message}
 
-				<select name='employment-type' ref={register}>
+				{/* <select name='employment-type' ref={register}>
 					<option value='Full-Time'>Full-Time</option>
 					<option value=' Part-Time'> Part-Time</option>
 					<option value=' Internship'> Internship</option>
 					<option value=' Seasonal'> Seasonal</option>
 					<option value=' Contract'> Contract</option>
 				</select>
-				{errors.employmentType && errors.employmentType.message}
+				{errors.employmentType && errors.employmentType.message} */}
 
-				<input
+				{/* <input
 					name='requiredExperience'
 					placeholder='Required Experience'
 					ref={register({
@@ -106,9 +126,9 @@ const AddJob = props => {
 						}
 					})}
 				/>
-				{errors.requiredExperience && errors.requiredExperience.message}
+				{errors.requiredExperience && errors.requiredExperience.message} */}
 
-				<input
+				<Input
 					name='salary'
 					placeholder='Salary'
 					ref={register({
@@ -124,9 +144,10 @@ const AddJob = props => {
 					})}
 				/>
 				{errors.salary && errors.salary.message}
-				<button type='submit'>Post Job</button>
-			</form>
-		</div>
+
+				<DashboardButton type='submit'>Post Job</DashboardButton>
+			</Form>
+		</HomeStyled>
 	);
 };
 
