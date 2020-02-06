@@ -15,7 +15,8 @@ import {
 	ButtonStyled,
 	PurpleText,
 	Highlighted,
-	HoverText
+	HoverText,
+	PurpleTextLogin
 } from '../../../styledcomp/Home';
 
 const CompanyLoginForm = props => {
@@ -88,10 +89,10 @@ const CompanyLoginForm = props => {
 				{/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword' /> */}
 				<LinkStyled>
-					<PurpleText>Forgot Password?</PurpleText>
+					<PurpleTextLogin>Forgot Password?</PurpleTextLogin>
 				</LinkStyled>
 				<LinkStyled to='/company-signup'>
-					<PurpleText>Don't have an account? Sign up!</PurpleText>
+					<PurpleTextLogin>Don't have an account? Sign up!</PurpleTextLogin>
 				</LinkStyled>
 				<ButtonStyled type='submit' onClick={handleSubmit(onSubmit)}>
 					Sign in

@@ -30,6 +30,12 @@ const CardDiv = styled.div`
 	text-align: center;
 `;
 
+
+const DescriptionStyled = styled.div`
+	margin:5%;
+	padding:0 10%;
+        `
+
 const CardDiv2 = styled.div`
 	border: 1px #e7e7e7 solid;
 	border-radius: 20px;
@@ -44,15 +50,19 @@ const CardDiv2 = styled.div`
 	text-align: center;
 `;
 
+
 const DescriptionStyled = styled.div`
 	margin: 5%;
 `;
 
 const EditButtonDisplayFlex = styled.div`
-	margin-right: 40%;
+	margin-right: 27%;
+	@media (max-width: 1000px) {
+		margin-right:40%;
+	};
 	@media (max-width: 500px) {
-		margin-right: 53%;
-	}
+		margin-right: 65%;
+		};
 `;
 
 const DashboardCenter = styled.div`
@@ -93,6 +103,7 @@ const Input = styled.input`
 	text-indent: 20px;
 
 	border-radius: 15px;
+	text-indent: 3%;
 	&::placeholder {
 		color: #2f8a90;
 	}
@@ -170,6 +181,21 @@ const DashboardButton = styled.button`
 	margin-top: 1vh;
 	padding: 10px 50px;
 	border-radius: 35px;
+	width:200px;
+	heigth:100px;
+	border:none;
+	cursor: pointer;
+`;
+
+const DeleteButton = styled.button`
+	background-color: red;
+	color: white;
+	margin-top: 1vh;
+	padding: 10px 50px;
+	border-radius: 35px;
+	width:200px;
+	heigth:100px;
+	border:none;
 	width: 200px;
 	heigth: 100px;
 	// border:2px solid #2F8A90;
@@ -182,7 +208,10 @@ const TextArea = styled.textarea`
 	margin: 1vh 0;
 	border-radius: 15px;
 	height: 75px;
-	border: 1px solid #9b51e0;
+
+	border: 1px solid #9B51E0;
+	text-indent: 3%;
+
 	&::placeholder {
 		text-align: center;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
@@ -207,8 +236,20 @@ const HoverText = styled.span`
 `;
 
 const PurpleText = styled.p`
-	color: #9400d3;
+	color:#9400D3;
+	display:flex;
+	justify-content:flex-start;
+	width:30%;
+	&.addJobText {
+		font-size: 20px;
+		// align-items: left;
+		
+	}
+`;
 
+
+const PurpleTextLogin = styled.p`
+	color:#9400D3;
 	&.addJobText {
 		font-size: 20px;
 		// align-items: left;
@@ -216,14 +257,20 @@ const PurpleText = styled.p`
 `;
 
 const EditDisplayFlex = styled.div`
-	display: flex;
-	justify-content: space-evenly;
-	margin: 2% 0;
-	font-color: #2f8a90;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-between;
+	margin:2% 0;
+	width:30%;
+	font-color:#2F8A90;
+	@media (max-width: 1000px) {
+		width:50%;
+	};
 	@media (max-width: 500px) {
-		padding: 2% 0;
-	}
-`;
+	padding: 2% 0;
+	width:75%;
+	};
+
 
 export {
 	HomeStyled,
@@ -245,6 +292,10 @@ export {
 	DashboardCenter,
 	EditButtonDisplayFlex,
 	EditScreenText,
+
+	DeleteButton,
+	PurpleTextLogin,
+
 	CardDiv,
 	CardDiv2,
 	Button
