@@ -5,6 +5,7 @@ import {
 	HomeStyled,
 	StyledHeading,
 	Form,
+	Button,
 	Input,
 	Links,
 	LinkStyled,
@@ -43,37 +44,47 @@ const JobSeekerDashBoard = props => {
 	}, []);
 
 	return (
-		<HomeStyled>
-			<StyledHeading>Dashboard</StyledHeading>
-			<Form className='jobSeekerDashboard'>
-				{/* <Input name='seekers_location' placeholder='Location' />
+		<>
+			<Button onClick={() => props.history.goBack()}>Back</Button>
+
+			<HomeStyled>
+				<StyledHeading>Dashboard</StyledHeading>
+
+				<Form className='jobSeekerDashboard'>
+					{/* <Input name='seekers_location' placeholder='Location' />
 				<Input name='job_industry' placeholder='Industry' />
 				<Input name='seekers_salary' placeholder='Salary' /> */}
-				{
-					//to jobseekers swipe
-				}
-				<DashboardButton
-					type='submit'
-					onClick={() => props.history.push('/jobseeker-swipe')}
-				>
-					Search by Occupation
-				</DashboardButton>{' '}
-				{
-					//to jobseekers matches
-				}
-				{/* <DashboardButton
-					onClick={() => props.history.push('/jobseeker-matches')}
-				>
 					{
 						//to jobseekers swipe
 					}
+					<DashboardButton
+						onClick={() => props.history.push('/jobseeker-profile')}
+					>
+						My Profile
+					</DashboardButton>{' '}
+					<DashboardButton
+						type='submit'
+						onClick={() => props.history.push('/jobseeker-swipe')}
+					>
+						Search by Occupation
+					</DashboardButton>{' '}
 					{
 						//to jobseekers matches
 					}
-					Matches
-				</DashboardButton> */}
-			</Form>
-		</HomeStyled>
+					<DashboardButton
+						onClick={() => props.history.push('/jobseeker-matches')}
+					>
+						{
+							//to jobseekers swipe
+						}
+						{
+							//to jobseekers matches
+						}
+						Matches
+					</DashboardButton>
+				</Form>
+			</HomeStyled>
+		</>
 	);
 };
 

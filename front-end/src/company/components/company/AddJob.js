@@ -7,7 +7,7 @@ import {
 	StyledHeading,
 	Form,
 	Input,
-	Links,
+	Button,
 	LinkStyled,
 	ButtonStyled,
 	PurpleText,
@@ -61,11 +61,11 @@ const AddJob = props => {
 
 	useEffect(() => {
 		axiosWithAuthCompany()
-			.get('/jobs')
+			.get('/jobs/3')
 			.then(res => {
 				console.log(res.data);
 			});
-	});
+	}, []);
 
 	const id = localStorage.getItem('companyid');
 
@@ -76,122 +76,102 @@ const AddJob = props => {
 
 	// need to refresh form after submission
 	return (
-		<HomeStyled>
-			<StyledDashboardHeading>DROOM</StyledDashboardHeading>
-			{/* Insert company img if we get time*/}
+		<>
+			<Button onClick={() => props.history.goBack()}>Back</Button>
+			<HomeStyled>
+				<StyledDashboardHeading>DROOM</StyledDashboardHeading>
+				{/* Insert company img if we get time*/}
 
-			<h3>Add a Job</h3>
-			<Form className='addJob' onSubmit={handleSubmit(onSubmit)}>
-				<PurpleText className='addJobText'>Add Job</PurpleText>
-				<Input
-					name='companies_id'
-					placeholder={id}
-					value={id}
-					ref={register({
-						required: 'Salary required',
-						minLength: {
-							value: 1,
-							message: 'Salary must contain at least 4 characters'
-						},
-						maxLength: {
-							value: 20,
-							message: 'Salary must contain 30 or fewer characters'
-						}
-					})}
-				/>
-				{errors.salary && errors.salary}
-				<input
-					name='job_position'
-					placeholder='Job Title'
-					ref={register({
-						required: 'Job Title required',
-						minLength: {
-							value: 4,
-							message: 'Job Title must contain at least 4 characters'
-						},
-						maxLength: {
-							value: 20,
-							message: 'Job Title must contain 20 or fewer characters'
-						}
-					})}
-				/>
-				{errors.job_position && errors.job_position.message}
-				<Input
-					name='company'
-					placeholder='Company name'
-					ref={register({
-						required: 'company',
-						minLength: {
-							value: 4,
-							message: 'Salary must contain at least 4 characters'
-						},
-						maxLength: {
-							value: 20,
-							message: 'Salary must contain 30 or fewer characters'
-						}
-					})}
-				/>
-				{errors.company && errors.company.message}
-				{/* 	<input
-					name='job_location'
-					placeholder='Location'
-					ref={register({
-						required: 'Location required',
-						minLength: {
-							value: 3,
-							message: 'Location must contain at least 3 characters'
-						},
-						maxLength: {
-							value: 30,
-							message: 'Location must contain 30 or fewer characters'
-						}
-					})}
-				/>
+				<Form className='addJob' onSubmit={handleSubmit(onSubmit)}>
+					<PurpleText className='addJobText'>Add Job</PurpleText>
+					<Input
+						name='companies_id'
+						placeholder={id}
+						value={id}
+						ref={register({
+							required: 'Salary required',
+							minLength: {
+								value: 1,
+								message: 'Salary must contain at least 4 characters'
+							},
+							maxLength: {
+								value: 20,
+								message: 'Salary must contain 30 or fewer characters'
+							}
+						})}
+					/>
+					{errors.salary && errors.salary}
+					<Input
+						name='job_position'
+						placeholder='Job Title'
+						ref={register({
+							required: 'Job Title required',
+							minLength: {
+								value: 4,
+								message: 'Job Title must contain at least 4 characters'
+							},
+							maxLength: {
+								value: 20,
+								message: 'Job Title must contain 20 or fewer characters'
+							}
+						})}
+					/>
+					{errors.job_position && errors.job_position.message}
+					<Input
+						name='company'
+						placeholder='Company name'
+						ref={register({
+							required: 'company',
+							minLength: {
+								value: 4,
+								message: 'Salary must contain at least 4 characters'
+							},
+							maxLength: {
+								value: 20,
+								message: 'Salary must contain 30 or fewer characters'
+							}
+						})}
+					/>
+					{errors.company && errors.company.message}
+					<Input
+						name='job_location'
+						placeholder='Location'
+						ref={register({
+							required: 'Location required',
+							minLength: {
+								value: 3,
+								message: 'Location must contain at least 3 characters'
+							},
+							maxLength: {
+								value: 30,
+								message: 'Location must contain 30 or fewer characters'
+							}
+						})}
+					/>
 
-				{errors.job_location && errors.job_location.message}
+					{errors.job_location && errors.job_location.message}
 
-				{/* <select name='employment-type' ref={register}>
-					<option value='Full-Time'>Full-Time</option>
-					<option value=' Part-Time'> Part-Time</option>
-					<option value=' Internship'> Internship</option>
-					<option value=' Seasonal'> Seasonal</option>
-					<option value=' Contract'> Contract</option>
-				</select>
-				{errors.employmentType && errors.employmentType.message} */}
+					<Input
+						name='salary'
+						placeholder='Salary'
+						ref={register({
+							required: 'Salary required',
+							minLength: {
+								value: 4,
+								message: 'Salary must contain at least 4 characters'
+							},
+							maxLength: {
+								value: 20,
+								message: 'Salary must contain 30 or fewer characters'
+							}
+						})}
+					/>
+					{errors.salary && errors.salary.message}
 
-				{/* <input
-					name='requiredExperience'
-					placeholder='Required Experience'
-					ref={register({
-						required: 'Required Experience required',
-						maxLength: {
-							value: 15,
-							message: 'Required Experience must contain 30 or fewer characters'
-						}
-					})}
-				/>
-				{errors.requiredExperience && errors.requiredExperience.message} */}
-
-				<Input
-					name='salary'
-					placeholder='Salary'
-					ref={register({
-						required: 'Salary required',
-						minLength: {
-							value: 4,
-							message: 'Salary must contain at least 4 characters'
-						},
-						maxLength: {
-							value: 20,
-							message: 'Salary must contain 30 or fewer characters'
-						}
-					})}
-				/>
-				{errors.salary && errors.salary.message}
-
-				<DashboardButton type='submit'>Post Job</DashboardButton>
-			</Form>
-		</HomeStyled>
+					<DashboardButton type='submit'>Post Job</DashboardButton>
+				</Form>
+			</HomeStyled>
+		</>
 	);
 };
 

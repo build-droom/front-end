@@ -1,11 +1,9 @@
 import React from 'react';
-import styled, {keyframes} from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import {slideOutLeft} from 'react-animations'
+import { slideOutLeft } from 'react-animations';
 
 const slideLeft = keyframes`${slideOutLeft}`;
-
-
 
 const HomeStyled = styled.div`
 	// padding: 14.1% 0;
@@ -18,42 +16,54 @@ const HomeStyled = styled.div`
 	// background-size:cover;
 `;
 
-
 const CardDiv = styled.div`
-  border: 1px #e7e7e7 solid;
-  border-radius: 20px;
-  padding: 30% 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  width: 70%;
-  margin: 100px auto;
-  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+	border: 1px #e7e7e7 solid;
+	border-radius: 20px;
+	padding: 30% 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	width: 70%;
+	margin: 100px auto;
+	box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
 	transition: opacity 0.2s ease, box-shadow 0.2s ease;
-	animation: 1.5s ${slideLeft}
+	text-align: center;
+`;
+
+const CardDiv2 = styled.div`
+	border: 1px #e7e7e7 solid;
+	border-radius: 20px;
+	padding: 10% 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	width: 40%;
+	margin: 40px auto;
+	box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+	transition: opacity 0.2s ease, box-shadow 0.2s ease;
+	text-align: center;
 `;
 
 const DescriptionStyled = styled.div`
-	margin:5%;
-
+	margin: 5%;
 `;
 
 const EditButtonDisplayFlex = styled.div`
 	margin-right: 40%;
 	@media (max-width: 500px) {
 		margin-right: 53%;
-		}
+	}
 `;
 
 const DashboardCenter = styled.div`
-	display:flex;
-	flex-direction:column;
-	align-items:center;
-	text-align:center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	text-align: center;
 `;
 
 const EditScreenText = styled.h4`
-	color: #2F8A90;
+	color: #2f8a90;
 `;
 
 const StyledHeading = styled.h1`
@@ -63,11 +73,10 @@ const StyledHeading = styled.h1`
 `;
 
 const StyledDashboardHeading = styled.h1`
-	color:#9B51E0;
-	font-size:2.5rem;
-	text-align:center;
+	color: #9b51e0;
+	font-size: 2.5rem;
+	text-align: center;
 	font-family: 'Josefin Sans', sans-serif;
-
 `;
 
 const Form = styled.form`
@@ -79,12 +88,13 @@ const Form = styled.form`
 const Input = styled.input`
 	width: 250px;
 	margin: 1vh 0;
-	border: 1px solid #9B51E0;
+	border: 1px solid #9b51e0;
 	height: 30px;
+	text-indent: 20px;
+
 	border-radius: 15px;
 	&::placeholder {
-		text-align:center;
-		color: #2F8A90;
+		color: #2f8a90;
 	}
 `;
 
@@ -119,7 +129,27 @@ const ButtonStyled = styled.button`
 	padding: 10px 50px;
 	border-radius: 35px;
 	// border:2px solid #2F8A90;
-	border:none;
+	border: none;
+	cursor: pointer;
+`;
+
+const Button = styled.button`
+	// background-color: #9b51e0;
+	// color: white;
+	// margin-top: 5vh;
+	// padding: 20px 30px;
+	// border-radius: 35px;
+	// // border:2px solid #2F8A90;
+	// border:none;
+	// cursor: pointer;
+	background-color: #de562a;
+	color: white;
+	margin-top: 1vh;
+	margin-left: 10px;
+	padding: 5px 5px;
+	border-radius: 10px;
+	// border:2px solid #2F8A90;
+	border: none;
 	cursor: pointer;
 `;
 
@@ -130,7 +160,7 @@ const ButtonStyledSignUp = styled.button`
 	padding: 10px 50px;
 	border-radius: 35px;
 	// border:2px solid #2F8A90;
-	border:none;
+	border: none;
 	cursor: pointer;
 `;
 
@@ -140,10 +170,10 @@ const DashboardButton = styled.button`
 	margin-top: 1vh;
 	padding: 10px 50px;
 	border-radius: 35px;
-	width:200px;
-	heigth:100px;
+	width: 200px;
+	heigth: 100px;
 	// border:2px solid #2F8A90;
-	border:none;
+	border: none;
 	cursor: pointer;
 `;
 
@@ -152,51 +182,48 @@ const TextArea = styled.textarea`
 	margin: 1vh 0;
 	border-radius: 15px;
 	height: 75px;
-	border: 1px solid #9B51E0;
+	border: 1px solid #9b51e0;
 	&::placeholder {
-		text-align:center;
-		font-family: -apple-system, 
-		BlinkMacSystemFont, 'Segoe UI', 
-		'Roboto', 'Oxygen', 'Ubuntu', 
-		'Cantarell', 'Fira Sans', 'Droid Sans', 
-		'Helvetica Neue', sans-serif;
-		line-height:6;
-		font-size:0.75rem;
-		color: #2F8A90;
+		text-align: center;
+		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+			'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+			'Helvetica Neue', sans-serif;
+		line-height: 6;
+		font-size: 0.75rem;
+		color: #2f8a90;
 	}
-`
+`;
 const Highlighted = styled.span`
-	color: #9B51E0;
-	padding-bottom:1px;
-	border-bottom: 1px solid #9B51E0;
-	margin-bottom:4px;
+	color: #9b51e0;
+	padding-bottom: 1px;
+	border-bottom: 1px solid #9b51e0;
+	margin-bottom: 4px;
 `;
 
 const HoverText = styled.span`
-	&:Hover { 
-		color: #9400D3;
+	&:hover {
+		color: #9400d3;
 	}
 `;
 
 const PurpleText = styled.p`
-	color:#9400D3;
+	color: #9400d3;
 
 	&.addJobText {
 		font-size: 20px;
 		// align-items: left;
-		
 	}
 `;
 
 const EditDisplayFlex = styled.div`
-	display:flex;
-	justify-content:space-evenly;
-	margin:2% 0;
-	font-color:#2F8A90;
+	display: flex;
+	justify-content: space-evenly;
+	margin: 2% 0;
+	font-color: #2f8a90;
 	@media (max-width: 500px) {
-	padding: 2% 0;
+		padding: 2% 0;
 	}
-`
+`;
 
 export {
 	HomeStyled,
@@ -218,6 +245,7 @@ export {
 	DashboardCenter,
 	EditButtonDisplayFlex,
 	EditScreenText,
-	CardDiv
+	CardDiv,
+	CardDiv2,
+	Button
 };
-	
