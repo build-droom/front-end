@@ -21,10 +21,11 @@ export const DELETE_DATA_START = 'DELETE_DATA_START';
 export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS';
 export const DELETE_DATA_FAILURE = 'DELETE_DATA_FAILURE';
 
-export const deleteData = () => dispatch => {
+export const deleteProfile = id => dispatch => {
 	dispatch({ type: DELETE_DATA_START });
+	console.log('deleting company');
 	axiosWithAuthCompany()
-		.delete('/data')
+		.delete(`/jobs/company/${id}`)
 		.then(res => {
 			dispatch({ type: DELETE_DATA_SUCCESS, payload: res.data });
 		})
@@ -77,11 +78,12 @@ export const POST_JOB_START = 'POST_JOB_START';
 export const POST_JOB_SUCCESS = 'POST_JOB_SUCCESS';
 export const POST_JOB_FAILURE = 'POST_JOB_FAILURE';
 
-export const postJob = data => dispatch => {
+export const postJob = values => dispatch => {
 	console.log('inside post job');
+	console.log(values);
 	dispatch({ type: POST_JOB_START });
 	return axiosWithAuthCompany()
-		.post('/jobs/company/1', data)
+		.post('/jobs', values)
 		.then(res => {
 			console.log(res);
 			dispatch({ type: POST_JOB_SUCCESS, payload: res.data });

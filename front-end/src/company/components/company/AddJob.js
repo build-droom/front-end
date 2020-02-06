@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { postJob } from './../../actions/companyAPIAction';
 import { useDispatch } from 'react-redux';
@@ -17,11 +17,14 @@ import {
 	DashboardButton
 } from '../../../styledcomp/Home';
 
+import { axiosWithAuthCompany } from './../../utils/axiosWithAuthCompany';
+
 const AddJob = props => {
 	const { handleSubmit, register, errors } = useForm();
 	const dispatch = useDispatch();
 
-  {/*const onSubmit = values => {
+	{
+		/*const onSubmit = values => {
     console.log(values);
     // saveJob(job);
     axios.post('ttps://droombwlambda.herokuapp.com/api/companies/job', values)
@@ -53,14 +56,22 @@ const AddJob = props => {
           })}
         />
         {errors.jobTitle && errors.jobTitle.message}
-*/}
+*/
+	}
+
+	useEffect(() => {
+		axiosWithAuthCompany()
+			.get('/jobs')
+			.then(res => {
+				console.log(res.data);
+			});
+	});
+
+	const id = localStorage.getItem('companyid');
 
 	const onSubmit = values => {
 		console.log(values);
-		dispatch(postJob(values)).then(res => {
-			console.log('this is from company add job', res);
-			props.history.push('/company-dashboard');
-		});
+		dispatch(postJob(values)).then(props.history.push('/company-dashboard'));
 	};
 
 	// need to refresh form after submission
@@ -69,10 +80,27 @@ const AddJob = props => {
 			<StyledDashboardHeading>DROOM</StyledDashboardHeading>
 			{/* Insert company img if we get time*/}
 
-			
+			<h3>Add a Job</h3>
 			<Form className='addJob' onSubmit={handleSubmit(onSubmit)}>
 				<PurpleText className='addJobText'>Add Job</PurpleText>
 				<Input
+					name='companies_id'
+					placeholder={id}
+					value={id}
+					ref={register({
+						required: 'Salary required',
+						minLength: {
+							value: 1,
+							message: 'Salary must contain at least 4 characters'
+						},
+						maxLength: {
+							value: 20,
+							message: 'Salary must contain 30 or fewer characters'
+						}
+					})}
+				/>
+				{errors.salary && errors.salary}
+				<input
 					name='job_position'
 					placeholder='Job Title'
 					ref={register({
@@ -88,8 +116,23 @@ const AddJob = props => {
 					})}
 				/>
 				{errors.job_position && errors.job_position.message}
-
 				<Input
+					name='company'
+					placeholder='Company name'
+					ref={register({
+						required: 'company',
+						minLength: {
+							value: 4,
+							message: 'Salary must contain at least 4 characters'
+						},
+						maxLength: {
+							value: 20,
+							message: 'Salary must contain 30 or fewer characters'
+						}
+					})}
+				/>
+				{errors.company && errors.company.message}
+				{/* 	<input
 					name='job_location'
 					placeholder='Location'
 					ref={register({
@@ -104,6 +147,7 @@ const AddJob = props => {
 						}
 					})}
 				/>
+
 				{errors.job_location && errors.job_location.message}
 
 				{/* <select name='employment-type' ref={register}>
@@ -142,12 +186,15 @@ const AddJob = props => {
 							message: 'Salary must contain 30 or fewer characters'
 						}
 					})}
+
 				/>
 				{errors.salary && errors.salary.message}
 
 				<DashboardButton type='submit'>Post Job</DashboardButton>
 			</Form>
 		</HomeStyled>
+				/> */}
+
 	);
 };
 
