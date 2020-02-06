@@ -186,15 +186,12 @@ const AddJob = props => {
 							message: 'Salary must contain 30 or fewer characters'
 						}
 					})}
-
 				/>
 				{errors.salary && errors.salary.message}
 
 				<DashboardButton type='submit'>Post Job</DashboardButton>
 			</Form>
 		</HomeStyled>
-				/> */}
-
 	);
 };
 
