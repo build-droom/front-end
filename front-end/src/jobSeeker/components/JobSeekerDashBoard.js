@@ -1,3 +1,24 @@
+import React from 'react';
+import {
+	HomeStyled,
+	StyledHeading,
+	Form,
+	Input,
+	Links,
+	LinkStyled,
+	ButtonStyled,
+	PurpleText,
+	Highlighted,
+	HoverText,
+	EditDisplayFlex,
+	DescriptionStyled,
+	StyledDashboardHeading,
+	DashboardButton,
+	DashboardCenter,
+	EditButtonDisplayFlex,
+	EditScreenText
+} from '../../styledcomp/Home';
+
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getData } from './../actions/jobSeekerAPIAction';
@@ -24,26 +45,49 @@ const JobSeekerDashBoard = props => {
 	}, []);
 
 	return (
-		<div>
-			<h1>Dashboard</h1>
-			<form>
-				{
-					//to jobseekers swipe
-				}
+
+		<HomeStyled>
+			<StyledHeading>Dashboard</StyledHeading>
+			<Form className='jobSeekerDashboard'>
+			<Input 
+			name='seekers_location'
+			placeholder='Location'
+			/>
+			<Input 
+			name='job_industry'
+			placeholder='Industry' 
+			/>
+			<Input 
+			name='seekers_salary'
+			placeholder='Salary' 
+			/>
+			{
+				//to jobseekers swipe
+			}
 				<button
 					type='submit'
 					onClick={() => props.history.push('/jobseeker-swipe')}
 				>
 					Search by title
-				</button>
+				</button>			{
+				//to jobseekers matches
+			}
+			<DashboardButton onClick={() => props.history.push('/jobseeker-matches')}>
+
+				{
+					//to jobseekers swipe
+				}
+
 				{
 					//to jobseekers matches
 				}
 			</form>
 			<button onClick={() => props.history.push('/jobseeker-matches')}>
+
 				Matches
-			</button>
-		</div>
+			</DashboardButton>
+			</Form>
+		</HomeStyled>
 	);
 };
 

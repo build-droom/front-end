@@ -12,7 +12,10 @@ import {
 	Input,
 	Links,
 	LinkStyled,
-	ButtonStyled
+	ButtonStyled,
+	PurpleText,
+	Highlighted,
+	HoverText
 } from '../../../styledcomp/Home';
 
 const CompanyLoginForm = props => {
@@ -40,10 +43,15 @@ const CompanyLoginForm = props => {
 			<Links>
 				<LinkStyled onClick={() => props.history.push('/')}>
 					{' '}
-					Job Applicant
+					<HoverText>Job Applicant</HoverText>
 				</LinkStyled>
-				<LinkStyled>Company</LinkStyled>
+				<LinkStyled>
+					<Highlighted>
+						Company
+					</Highlighted>
+				</LinkStyled>
 			</Links>
+			
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<Input
 					name='company_email'
@@ -59,6 +67,7 @@ const CompanyLoginForm = props => {
 					// })}
 				/>
 				{errors.email && errors.email.message}
+
 				<Input
 					name='password'
 					placeholder='Password'
@@ -75,11 +84,14 @@ const CompanyLoginForm = props => {
 					})}
 				/>
 				{errors.password && <p className='red'>{errors.password.message}</p>}
+
 				{/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword' /> */}
-				<LinkStyled>Forgot Password?</LinkStyled>
+				<LinkStyled>
+					<PurpleText>Forgot Password?</PurpleText>
+				</LinkStyled>
 				<LinkStyled to='/company-signup'>
-					Don't have an account? Sign up!
+					<PurpleText>Don't have an account? Sign up!</PurpleText>
 				</LinkStyled>
 				<ButtonStyled type='submit' onClick={handleSubmit(onSubmit)}>
 					Sign in

@@ -2,6 +2,21 @@ import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { postJob } from './../../actions/companyAPIAction';
 import { useDispatch } from 'react-redux';
+import {
+	HomeStyled,
+	StyledHeading,
+	Form,
+	Input,
+	Links,
+	LinkStyled,
+	ButtonStyled,
+	PurpleText,
+	Highlighted,
+	HoverText,
+	StyledDashboardHeading,
+	DashboardButton
+} from '../../../styledcomp/Home';
+
 import { axiosWithAuthCompany } from './../../utils/axiosWithAuthCompany';
 
 const AddJob = props => {
@@ -58,12 +73,17 @@ const AddJob = props => {
 		console.log(values);
 		dispatch(postJob(values)).then(props.history.push('/company-dashboard'));
 	};
+
 	// need to refresh form after submission
 	return (
-		<div>
+		<HomeStyled>
+			<StyledDashboardHeading>DROOM</StyledDashboardHeading>
+			{/* Insert company img if we get time*/}
+
 			<h3>Add a Job</h3>
-			<form className='addJob' onSubmit={handleSubmit(onSubmit)}>
-				<input
+			<Form className='addJob' onSubmit={handleSubmit(onSubmit)}>
+				<PurpleText className='addJobText'>Add Job</PurpleText>
+				<Input
 					name='companies_id'
 					placeholder={id}
 					value={id}
@@ -95,9 +115,8 @@ const AddJob = props => {
 						}
 					})}
 				/>
-				{errors.job_position && errors.jobTitle.message}
-
-				<input
+				{errors.job_position && errors.job_position.message}
+				<Input
 					name='company'
 					placeholder='Company name'
 					ref={register({
@@ -128,8 +147,32 @@ const AddJob = props => {
 						}
 					})}
 				/>
-				{errors.job_location && errors.location.message}
-				<input
+
+				{errors.job_location && errors.job_location.message}
+
+				{/* <select name='employment-type' ref={register}>
+					<option value='Full-Time'>Full-Time</option>
+					<option value=' Part-Time'> Part-Time</option>
+					<option value=' Internship'> Internship</option>
+					<option value=' Seasonal'> Seasonal</option>
+					<option value=' Contract'> Contract</option>
+				</select>
+				{errors.employmentType && errors.employmentType.message} */}
+
+				{/* <input
+					name='requiredExperience'
+					placeholder='Required Experience'
+					ref={register({
+						required: 'Required Experience required',
+						maxLength: {
+							value: 15,
+							message: 'Required Experience must contain 30 or fewer characters'
+						}
+					})}
+				/>
+				{errors.requiredExperience && errors.requiredExperience.message} */}
+
+				<Input
 					name='salary'
 					placeholder='Salary'
 					ref={register({
@@ -143,11 +186,15 @@ const AddJob = props => {
 							message: 'Salary must contain 30 or fewer characters'
 						}
 					})}
+
+				/>
+				{errors.salary && errors.salary.message}
+
+				<DashboardButton type='submit'>Post Job</DashboardButton>
+			</Form>
+		</HomeStyled>
 				/> */}
 
-				<button type='submit'>Post Job</button>
-			</form>
-		</div>
 	);
 };
 

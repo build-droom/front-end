@@ -15,8 +15,6 @@ import {
 	ButtonStyledSignUp
 } from '../../../styledcomp/Home';
 
-
-
 const CompanySignUp = props => {
 	const { handleSubmit, register, errors } = useForm({});
 	const dispatch = useDispatch();
@@ -53,6 +51,8 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
+				{errors.company_name && errors.company_name.message}
+
 				<Input
 					name='company_email'
 					placeholder='Email'
@@ -65,7 +65,8 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
-				{errors.email && errors.email.message}
+				{errors.company_email && errors.company_email.message}
+
 				<Input
 					name='password'
 					placeholder='Password'
@@ -97,6 +98,7 @@ const CompanySignUp = props => {
           })}
         />
         {errors.passwordRepeat && <p>{errors.passwordRepeat.message}</p>} */}
+
 				<TextArea
 					type='textarea'
 					placeholder='Description'
@@ -113,6 +115,8 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
+				{errors.companies_description && errors.companies_description.message}
+
 				<Input
 					type='text'
 					placeholder='Company Location'
@@ -129,6 +133,8 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
+				{errors.companies_location && errors.companies_location.message}
+
 				<Input
 					type='text'
 					placeholder='Industry'
@@ -145,6 +151,8 @@ const CompanySignUp = props => {
 						}
 					})}
 				/>
+				{errors.industry_type && errors.industry_type.message}
+
 				<ButtonStyledSignUp type='submit' onClick={handleSubmit(onSubmit)}>
 					Submit
 				</ButtonStyledSignUp>

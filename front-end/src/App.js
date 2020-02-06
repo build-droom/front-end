@@ -51,12 +51,8 @@ function App() {
 					path='/edit-profile'
 					component={CompanyEditProfile}
 				/>
-				<Footer>2020 Droom, Inc</Footer>
 
 				{/* Temporary Nav Links */}
-				<Link to='/'>Home</Link>
-				<Link to='/company-login'>Login</Link>
-				<Link to='/company-signup'>Signup</Link>
 				<Link to='/company-dashboard'>Dashboard</Link>
 			</div>
 		</Router>
