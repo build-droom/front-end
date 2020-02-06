@@ -15,7 +15,8 @@ import {
 	ButtonStyled,
 	PurpleText,
 	Highlighted,
-	HoverText
+	HoverText,
+	Labels
 } from '../../../styledcomp/Home';
 
 const CompanyLoginForm = props => {
@@ -53,9 +54,10 @@ const CompanyLoginForm = props => {
 			</Links>
 			
 			<Form onSubmit={handleSubmit(onSubmit)}>
+			<Labels>Email</Labels>
 				<Input
 					name='company_email'
-					placeholder='Email'
+					// placeholder='Email'
 					ref={register}
 
 					//   ({
@@ -68,9 +70,10 @@ const CompanyLoginForm = props => {
 				/>
 				{errors.email && errors.email.message}
 
+				<Labels>Password</Labels>
 				<Input
 					name='password'
-					placeholder='Password'
+					// placeholder='Password'
 					type='password'
 					ref={register({
 						required: 'You must enter a password',

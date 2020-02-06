@@ -94,7 +94,7 @@ const Input = styled.input`
 
 	border-radius: 15px;
 	&::placeholder {
-		color: #2f8a90;
+		color: grey;
 	}
 `;
 
@@ -177,20 +177,34 @@ const DashboardButton = styled.button`
 	cursor: pointer;
 `;
 
+const DeleteButton = styled.button`
+	background-color: red;
+	color: white;
+	margin-top: 1vh;
+	padding: 10px 50px;
+	border-radius: 35px;
+	width: 200px;
+	heigth: 100px;
+	// border:2px solid #2F8A90;
+	border: none;
+	cursor: pointer;
+`;
+
 const TextArea = styled.textarea`
 	width: 250px;
 	margin: 1vh 0;
 	border-radius: 15px;
 	height: 75px;
 	border: 1px solid #9b51e0;
+	text-indent:10px;
 	&::placeholder {
-		text-align: center;
+		text-indent: 20px;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
 			'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
 			'Helvetica Neue', sans-serif;
 		line-height: 6;
 		font-size: 0.75rem;
-		color: #2f8a90;
+		color: grey;
 	}
 `;
 const Highlighted = styled.span`
@@ -225,6 +239,13 @@ const EditDisplayFlex = styled.div`
 	}
 `;
 
+const Labels = styled.label`
+	width: 250px;
+	font-size: .8rem;
+	color: #9400d3;
+	font-family: 'Open Sans', sans-serif;
+`;
+
 export {
 	HomeStyled,
 	StyledHeading,
@@ -247,5 +268,7 @@ export {
 	EditScreenText,
 	CardDiv,
 	CardDiv2,
-	Button
+	Button,
+	Labels,
+	DeleteButton
 };

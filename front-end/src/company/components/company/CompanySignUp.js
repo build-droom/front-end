@@ -12,7 +12,8 @@ import {
 	Links,
 	LinkStyled,
 	ButtonStyled,
-	ButtonStyledSignUp
+	ButtonStyledSignUp,
+	Labels
 } from '../../../styledcomp/Home';
 
 const CompanySignUp = props => {
@@ -35,9 +36,10 @@ const CompanySignUp = props => {
 			<img src={logo} alt='droom_logo' className='logo' />
 			<StyledHeading>Sign Up</StyledHeading>
 			<Form onSubmit={handleSubmit(onSubmit)}>
+				<Labels>Company Name</Labels>
 				<Input
 					type='text'
-					placeholder='Company'
+					// placeholder='Company'
 					name='company_name'
 					ref={register({
 						required: 'You must enter a company name',
@@ -53,9 +55,10 @@ const CompanySignUp = props => {
 				/>
 				{errors.company_name && errors.company_name.message}
 
+				<Labels>Email</Labels>
 				<Input
 					name='company_email'
-					placeholder='Email'
+					// placeholder='Email'
 					type='email'
 					ref={register({
 						required: 'You must enter an Email',
@@ -66,10 +69,11 @@ const CompanySignUp = props => {
 					})}
 				/>
 				{errors.company_email && errors.company_email.message}
-
+									
+				<Labels>Password</Labels>
 				<Input
 					name='password'
-					placeholder='Password'
+					// placeholder='Password'
 					type='password'
 					ref={register({
 						required: 'You must enter a password',
@@ -98,10 +102,11 @@ const CompanySignUp = props => {
           })}
         />
         {errors.passwordRepeat && <p>{errors.passwordRepeat.message}</p>} */}
-
+		
+				<Labels>Description</Labels>
 				<TextArea
 					type='textarea'
-					placeholder='Description'
+					// placeholder='Description'
 					name='companies_description'
 					ref={register({
 						required: 'You must enter a company description',
@@ -116,10 +121,11 @@ const CompanySignUp = props => {
 					})}
 				/>
 				{errors.companies_description && errors.companies_description.message}
-
+				
+				<Labels>Location</Labels>
 				<Input
 					type='text'
-					placeholder='Company Location'
+					// placeholder='Company Location'
 					name='companies_location'
 					ref={register({
 						required: 'You must enter a company location',
@@ -134,10 +140,11 @@ const CompanySignUp = props => {
 					})}
 				/>
 				{errors.companies_location && errors.companies_location.message}
-
+				
+				<Labels>Industry</Labels>
 				<Input
 					type='text'
-					placeholder='Industry'
+					// placeholder='Industry'
 					name='industry_type'
 					ref={register({
 						required: 'You must enter an Industry type',

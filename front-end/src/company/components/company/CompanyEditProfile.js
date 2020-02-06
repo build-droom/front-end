@@ -11,7 +11,9 @@ import {
 	PurpleText,
 	Button,
 	StyledDashboardHeading,
-	DashboardButton
+	DashboardButton,
+	TextArea,
+	DeleteButton
 } from '../../../styledcomp/Home';
 
 import { useDispatch } from 'react-redux';
@@ -142,7 +144,7 @@ const CompanyEditProfile = props => {
 							}
 						})}
 					/>
-					<Input
+					<TextArea
 						type='text'
 						placeholder='Company Location'
 						name='companies_location'
@@ -178,9 +180,9 @@ const CompanyEditProfile = props => {
 					/>
 					<DashboardButton>Save</DashboardButton>
 
-					<DashboardButton onClick={deleteProfile}>
+					<DeleteButton onClick={deleteProfile}>
 						Delete Profile
-					</DashboardButton>
+					</DeleteButton>
 				</Form>
 			</HomeStyled>
 		</>
