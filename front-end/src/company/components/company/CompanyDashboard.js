@@ -34,27 +34,29 @@ const CompanyDashboard = props => {
           </h3>
         </EditButtonDisplayFlex>
         <EditDisplayFlex>
-          <EditScreenText>Company</EditScreenText>
-          <EditScreenText>Company Name</EditScreenText>
+          <EditScreenText>Company:</EditScreenText>
+          <EditScreenText>Google</EditScreenText>
           {/* <EditScreenText>{props.company_name}</EditScreenText> */}
         </EditDisplayFlex>
 
         <EditDisplayFlex>
-          <EditScreenText>Industry</EditScreenText>
-          <EditScreenText>Industry Name</EditScreenText>
+          <EditScreenText>Industry:</EditScreenText>
+          <EditScreenText>Technology</EditScreenText>
           {/* <EditScreenText>{props.industry_type}</EditScreenText> */}
         </EditDisplayFlex>
 
         <EditDisplayFlex>
-          <EditScreenText>Location</EditScreenText>
-          <EditScreenText>Location Name</EditScreenText>
+          <EditScreenText>Location:</EditScreenText>
+          <EditScreenText>San Francisco</EditScreenText>
           {/* <EditScreenText>{props.companies_location}</EditScreenText> */}
         </EditDisplayFlex>
       </DashboardCenter>
       <DashboardCenter>
-        <EditScreenText>Company Description</EditScreenText>
-        {/* <EditScreenText>{props.company_description}</EditScreenText> */}
-        <h3>
+		<EditDisplayFlex>
+        <EditScreenText>We are a Tech based company out of San Francisco. We work on revolutionizing the flow of Knowledge from Company to User. We love advancing our Tech and would love for you to join us!</EditScreenText>
+        {/* <EditScreenText>{props.companies_description}</EditScreenText> */}
+        </EditDisplayFlex>
+		<h3>
           <DashboardButton onClick={() => props.history.push("/add-a-job")}>
             Add a Job
           </DashboardButton>

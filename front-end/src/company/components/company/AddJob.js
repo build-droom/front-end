@@ -14,7 +14,8 @@ import {
 	Highlighted,
 	HoverText,
 	StyledDashboardHeading,
-	DashboardButton
+	DashboardButton,
+	TextArea
 } from '../../../styledcomp/Home';
 
 import { axiosWithAuthCompany } from './../../utils/axiosWithAuthCompany';
@@ -80,10 +81,9 @@ const AddJob = props => {
 			<StyledDashboardHeading>DROOM</StyledDashboardHeading>
 			{/* Insert company img if we get time*/}
 
-			<h3>Add a Job</h3>
 			<Form className='addJob' onSubmit={handleSubmit(onSubmit)}>
 				<PurpleText className='addJobText'>Add Job</PurpleText>
-				<Input
+				{/* <Input
 					name='companies_id'
 					placeholder={id}
 					value={id}
@@ -99,8 +99,9 @@ const AddJob = props => {
 						}
 					})}
 				/>
-				{errors.salary && errors.salary}
-				<input
+				{errors.salary && errors.salary} */}
+
+				<Input
 					name='job_position'
 					placeholder='Job Title'
 					ref={register({
@@ -116,7 +117,8 @@ const AddJob = props => {
 					})}
 				/>
 				{errors.job_position && errors.job_position.message}
-				<Input
+
+				{/* <Input
 					name='company'
 					placeholder='Company name'
 					ref={register({
@@ -131,8 +133,9 @@ const AddJob = props => {
 						}
 					})}
 				/>
-				{errors.company && errors.company.message}
-				{/* 	<input
+				{errors.company && errors.company.message} */}
+
+				<Input
 					name='job_location'
 					placeholder='Location'
 					ref={register({
@@ -147,8 +150,20 @@ const AddJob = props => {
 						}
 					})}
 				/>
-
 				{errors.job_location && errors.job_location.message}
+
+				<TextArea
+					name='description'
+					placeholder='Description'
+					ref={register({
+						required: 'Description required',
+						minLength: {
+							value: 5,
+							message: 'Description must contain at least 5 characters'
+						}
+					})}
+				/>
+				{errors.description && errors.description.message}
 
 				{/* <select name='employment-type' ref={register}>
 					<option value='Full-Time'>Full-Time</option>
@@ -159,7 +174,7 @@ const AddJob = props => {
 				</select>
 				{errors.employmentType && errors.employmentType.message} */}
 
-				{/* <input
+				<Input
 					name='requiredExperience'
 					placeholder='Required Experience'
 					ref={register({
@@ -170,7 +185,7 @@ const AddJob = props => {
 						}
 					})}
 				/>
-				{errors.requiredExperience && errors.requiredExperience.message} */}
+				{errors.requiredExperience && errors.requiredExperience.message}
 
 				<Input
 					name='salary'

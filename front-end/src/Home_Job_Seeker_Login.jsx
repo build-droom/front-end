@@ -16,7 +16,8 @@ import {
 	ButtonStyled,
 	PurpleText,
 	Highlighted,
-	HoverText
+	HoverText,
+	PurpleTextLogin
 } from './styledcomp/Home';
 
 //creating here the login form for the user with a route and link to the company's
@@ -73,10 +74,10 @@ const Home_Job_Seeker_Login = props => {
 				{/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword' /> */}
 				<LinkStyled>
-				<PurpleText>Forgot Password?</PurpleText>
+				<PurpleTextLogin>Forgot Password?</PurpleTextLogin>
 				</LinkStyled>
 				<LinkStyled to='/job-seeker-signup'>
-					<PurpleText>Don't have an account? Sign up!</PurpleText>
+					<PurpleTextLogin>Don't have an account? Sign up!</PurpleTextLogin>
 				</LinkStyled>
 				<ButtonStyled type='submit'>Sign in</ButtonStyled>
 			</Form>

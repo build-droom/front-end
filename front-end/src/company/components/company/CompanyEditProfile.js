@@ -8,8 +8,10 @@ import {
 	Links,
 	LinkStyled,
 	ButtonStyled,
+	TextArea,
 	PurpleText,
 	Highlighted,
+	DeleteButton,
 	HoverText,
 	StyledDashboardHeading,
 	DashboardButton
@@ -68,15 +70,15 @@ const CompanyEditProfile = props => {
 			<StyledDashboardHeading>DROOM</StyledDashboardHeading>
 			<Form onSubmit={handleSubmit(onSubmit)}>
 				<PurpleText className='addJobText'>Edit Profile</PurpleText>
-				<Input
+				{/* <Input
 					type='text'
 					placeholder={id}
 					name='id'
 					value={id}
 					ref={register}
-				/>
+				/> */}
 
-				<input
+				<Input
 					type='text'
 					placeholder='Company'
 					defaultValue={info.company_name}
@@ -124,9 +126,9 @@ const CompanyEditProfile = props => {
 				/>
 				{errors.password && <p className='red'>{errors.password.message}</p>}
 
-				<Input
+				<TextArea
 					type='textarea'
-					placeholder='Company descript'
+					placeholder='Description'
 					name='companies_description'
 					defaultValue={info.companies_description}
 					ref={register({
@@ -176,9 +178,10 @@ const CompanyEditProfile = props => {
 					})}
 				/>
 				<DashboardButton onClick={onSubmit}>Save</DashboardButton>
-			</Form>
+			
 
-			<button onClick={deleteProfile}>Delete Profile</button>
+				<DeleteButton onClick={deleteProfile}>Delete Profile</DeleteButton>
+			</Form>
 		</HomeStyled>
 	);
 };
