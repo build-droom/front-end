@@ -1,6 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {keyframes} from 'styled-components';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import {slideOutLeft} from 'react-animations'
+
+const slideLeft = keyframes`${slideOutLeft}`;
 
 
 
@@ -13,6 +16,21 @@ const HomeStyled = styled.div`
 	// background: rgb(255,255,255);
 	// background: radial-gradient(circle, rgba(255,255,255,1) 36%, rgba(155,81,224,1) 100%);
 	// background-size:cover;
+`;
+
+
+const CardDiv = styled.div`
+  border: 1px #e7e7e7 solid;
+  border-radius: 20px;
+  padding: 30% 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  margin: 100px auto;
+  box-shadow: 0px 10px 30px 0px rgba(0, 0, 0, 0.1);
+	transition: opacity 0.2s ease, box-shadow 0.2s ease;
+	animation: 1.5s ${slideLeft}
 `;
 
 const DescriptionStyled = styled.div`
@@ -28,7 +46,7 @@ const EditButtonDisplayFlex = styled.div`
 `;
 
 const DashboardCenter = styled.div`
-	display:flex
+	display:flex;
 	flex-direction:column;
 	align-items:center;
 	text-align:center;
@@ -199,6 +217,7 @@ export {
 	DashboardButton,
 	DashboardCenter,
 	EditButtonDisplayFlex,
-	EditScreenText
+	EditScreenText,
+	CardDiv
 };
 	

@@ -46,22 +46,22 @@ const JobSeekerDashBoard = props => {
 		<HomeStyled>
 			<StyledHeading>Dashboard</StyledHeading>
 			<Form className='jobSeekerDashboard'>
-				<Input name='seekers_location' placeholder='Location' />
+				{/* <Input name='seekers_location' placeholder='Location' />
 				<Input name='job_industry' placeholder='Industry' />
-				<Input name='seekers_salary' placeholder='Salary' />
+				<Input name='seekers_salary' placeholder='Salary' /> */}
 				{
 					//to jobseekers swipe
 				}
-				<button
+				<DashboardButton
 					type='submit'
 					onClick={() => props.history.push('/jobseeker-swipe')}
 				>
-					Search by title
-				</button>{' '}
+					Search by Occupation
+				</DashboardButton>{' '}
 				{
 					//to jobseekers matches
 				}
-				<DashboardButton
+				{/* <DashboardButton
 					onClick={() => props.history.push('/jobseeker-matches')}
 				>
 					{
@@ -71,7 +71,7 @@ const JobSeekerDashBoard = props => {
 						//to jobseekers matches
 					}
 					Matches
-				</DashboardButton>
+				</DashboardButton> */}
 			</Form>
 		</HomeStyled>
 	);
