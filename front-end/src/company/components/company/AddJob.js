@@ -14,7 +14,8 @@ import {
 	Highlighted,
 	HoverText,
 	StyledDashboardHeading,
-	DashboardButton
+	DashboardButton,
+	TextArea
 } from '../../../styledcomp/Home';
 
 import { axiosWithAuthCompany } from './../../utils/axiosWithAuthCompany';
@@ -22,42 +23,6 @@ import { axiosWithAuthCompany } from './../../utils/axiosWithAuthCompany';
 const AddJob = props => {
 	const { handleSubmit, register, errors } = useForm();
 	const dispatch = useDispatch();
-
-	{
-		/*const onSubmit = values => {
-    console.log(values);
-    // saveJob(job);
-    axios.post('ttps://droombwlambda.herokuapp.com/api/companies/job', values)
-      .then((res) => {
-        props.history.push('/currentjobs')
-      })
-      .catch(err => {
-        console.log('Error posting job', err);
-      })
-  }
-// need to refresh form after submission
-  return (
-    <div>
-      <h3>Add a Job</h3>
-      <form className='addJob' onSubmit={handleSubmit(onSubmit)}>
-        <input 
-          name='jobTitle'
-          placeholder='Job Title'
-          ref={register({
-            required: 'Job Title required',
-            minLength: {
-              value: 4,
-              message: 'Job Title must contain at least 4 characters'
-            },
-            maxLength: {
-              value: 20,
-              message: 'Job Title must contain 20 or fewer characters'
-            }
-          })}
-        />
-        {errors.jobTitle && errors.jobTitle.message}
-*/
-	}
 
 	useEffect(() => {
 		axiosWithAuthCompany()
@@ -74,14 +39,11 @@ const AddJob = props => {
 		dispatch(postJob(values)).then(props.history.push('/company-dashboard'));
 	};
 
-	// need to refresh form after submission
 	return (
 		<>
 			<Button onClick={() => props.history.goBack()}>Back</Button>
 			<HomeStyled>
 				<StyledDashboardHeading>DROOM</StyledDashboardHeading>
-				{/* Insert company img if we get time*/}
-
 				<Form className='addJob' onSubmit={handleSubmit(onSubmit)}>
 					<PurpleText className='addJobText'>Add Job</PurpleText>
 					<Input

@@ -31,6 +31,11 @@ const CardDiv = styled.div`
 	text-align: center;
 `;
 
+const DescriptionStyled = styled.div`
+	margin: 5%;
+	padding: 0 10%;
+`;
+
 const CardDiv2 = styled.div`
 	border: 1px #e7e7e7 solid;
 	border-radius: 20px;
@@ -45,14 +50,13 @@ const CardDiv2 = styled.div`
 	text-align: center;
 `;
 
-const DescriptionStyled = styled.div`
-	margin: 5%;
-`;
-
 const EditButtonDisplayFlex = styled.div`
-	margin-right: 40%;
+	margin-right: 27%;
+	@media (max-width: 1000px) {
+		margin-right: 40%;
+	}
 	@media (max-width: 500px) {
-		margin-right: 53%;
+		margin-right: 65%;
 	}
 `;
 
@@ -94,8 +98,9 @@ const Input = styled.input`
 	text-indent: 20px;
 
 	border-radius: 15px;
+	text-indent: 3%;
 	&::placeholder {
-		color: #2f8a90;
+		color: grey;
 	}
 `;
 
@@ -173,6 +178,34 @@ const DashboardButton = styled.button`
 	border-radius: 35px;
 	width: 200px;
 	heigth: 100px;
+	border: none;
+	cursor: pointer;
+`;
+
+const DeleteButton = styled.button`
+	background-color: red;
+	color: white;
+	margin-top: 1vh;
+	padding: 10px 50px;
+	border-radius: 35px;
+	width: 200px;
+	heigth: 100px;
+	border: none;
+	width: 200px;
+	heigth: 100px;
+	// border:2px solid #2F8A90;
+	border: none;
+	cursor: pointer;
+`;
+
+const DeleteButton = styled.button`
+	background-color: red;
+	color: white;
+	margin-top: 1vh;
+	padding: 10px 50px;
+	border-radius: 35px;
+	width: 200px;
+	heigth: 100px;
 	// border:2px solid #2F8A90;
 	border: none;
 	cursor: pointer;
@@ -183,15 +216,18 @@ const TextArea = styled.textarea`
 	margin: 1vh 0;
 	border-radius: 15px;
 	height: 75px;
+
 	border: 1px solid #9b51e0;
+	text-indent:10px;
+
 	&::placeholder {
-		text-align: center;
+		text-indent: 20px;
 		font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
 			'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
 			'Helvetica Neue', sans-serif;
 		line-height: 6;
 		font-size: 0.75rem;
-		color: #2f8a90;
+		color: grey;
 	}
 `;
 const Highlighted = styled.span`
@@ -209,7 +245,17 @@ const HoverText = styled.span`
 
 const PurpleText = styled.p`
 	color: #9400d3;
+	display: flex;
+	justify-content: flex-start;
+	width: 30%;
+	&.addJobText {
+		font-size: 20px;
+		// align-items: left;
+	}
+`;
 
+const PurpleTextLogin = styled.p`
+	color: #9400d3;
 	&.addJobText {
 		font-size: 20px;
 		// align-items: left;
@@ -218,13 +264,20 @@ const PurpleText = styled.p`
 
 const EditDisplayFlex = styled.div`
 	display: flex;
-	justify-content: space-evenly;
+	flex-direction: row;
+	justify-content: space-between;
 	margin: 2% 0;
+	width: 30%;
 	font-color: #2f8a90;
+	@media (max-width: 1000px) {
+		width: 50%;
+	}
 	@media (max-width: 500px) {
 		padding: 2% 0;
+		width: 75%;
 	}
 `;
+
 
 const StyledHeadingSwipe = styled.h1`
   color: #2f8a90;
@@ -234,6 +287,13 @@ const StyledHeadingSwipe = styled.h1`
 	margin-top: 30px;
 	width: 70%;
 	
+`;
+        
+  const Labels = styled.label`
+	width: 250px;
+	font-size: .8rem;
+	color: #9400d3;
+	font-family: 'Open Sans', sans-serif;
 `;
 
 export {
@@ -259,5 +319,8 @@ export {
   CardDiv,
   CardDiv2,
   Button,
-  StyledHeadingSwipe
-};
+  StyledHeadingSwipe,
+	Labels,
+	DeleteButton
+
+

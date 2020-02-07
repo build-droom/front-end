@@ -8,10 +8,19 @@ import {
 	Links,
 	LinkStyled,
 	ButtonStyled,
+	TextArea,
 	PurpleText,
+
+	Highlighted,
+	DeleteButton,
+	HoverText,
+
 	Button,
+
 	StyledDashboardHeading,
-	DashboardButton
+	DashboardButton,
+	TextArea,
+	DeleteButton
 } from '../../../styledcomp/Home';
 
 import { useDispatch } from 'react-redux';
@@ -63,6 +72,7 @@ const CompanyEditProfile = props => {
 	};
 
 	return (
+
 		<>
 			<Button onClick={() => props.history.goBack()}>Back</Button>
 			<HomeStyled class='company-edit-container'>
@@ -142,7 +152,7 @@ const CompanyEditProfile = props => {
 							}
 						})}
 					/>
-					<Input
+					<TextArea
 						type='text'
 						placeholder='Company Location'
 						name='companies_location'
@@ -178,9 +188,9 @@ const CompanyEditProfile = props => {
 					/>
 					<DashboardButton>Save</DashboardButton>
 
-					<DashboardButton onClick={deleteProfile}>
+					<DeleteButton onClick={deleteProfile}>
 						Delete Profile
-					</DashboardButton>
+					</DeleteButton>
 				</Form>
 			</HomeStyled>
 		</>

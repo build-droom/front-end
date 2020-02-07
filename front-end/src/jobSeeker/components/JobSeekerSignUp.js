@@ -12,7 +12,8 @@ import {
 	Links,
 	LinkStyled,
 	ButtonStyled,
-	ButtonStyledSignUp
+  ButtonStyledSignUp,
+  Labels
 } from '../../styledcomp/Home';
 
 const JobSeekerSignUp = props => {
@@ -35,10 +36,11 @@ const JobSeekerSignUp = props => {
       <img src={logo} alt="droom_logo" className="logo" />
       <StyledHeading>Sign Up</StyledHeading>
       <Form onSubmit={handleSubmit(onSubmit)}>
+        <Labels>Username</Labels>
         <Input
           type="text"
           name="username"
-          placeholder="Username"
+          // placeholder="Username"
           ref={register({
             required: "You must enter a username",
             minLength: {
@@ -53,10 +55,11 @@ const JobSeekerSignUp = props => {
         />
         {errors.username && errors.username.message}
 
+        <Labels>Name</Labels>
         <Input
           type="text"
           name="full_name"
-          placeholder="Name"
+          // placeholder="Name"
           ref={register({
             required: "You must enter your Name",
             minLength: {
@@ -71,9 +74,10 @@ const JobSeekerSignUp = props => {
         />
         {errors.full_name && errors.full_name.message}
 
+        <Labels>Email</Labels>
         <Input
           name="seekers_email"
-          placeholder="Email"
+          // placeholder="Email"
           type="email"
           ref={register({
             required: "You must enter an Email",
@@ -85,9 +89,10 @@ const JobSeekerSignUp = props => {
         />
         {errors.seekers_email && errors.seekers_email.message}
 
+        <Labels>Password</Labels>
         <Input
           name="password"
-          placeholder="Password"
+          // placeholder="Password"
           type="password"
           ref={register({
             required: "You must enter a password",
@@ -104,9 +109,10 @@ const JobSeekerSignUp = props => {
         />
         {errors.password && <p className="red">{errors.password.message}</p>}
 
+        <Labels>Occupation</Labels>
         <Input
           type="text"
-          placeholder="Occupation"
+          // placeholder="Occupation"
           name="occupation"
           ref={register({
             required: "You must enter a company description",
@@ -122,9 +128,10 @@ const JobSeekerSignUp = props => {
         />
         {errors.occupation && errors.occupation.message}
 
+        <Labels>Location</Labels>
         <Input
           type="text"
-          placeholder="Location"
+          // placeholder="Location"
           name="seekers_location"
           ref={register({
             required: "You must enter a Location",
@@ -140,9 +147,10 @@ const JobSeekerSignUp = props => {
         />
         {errors.seekers_location && errors.seekers_location.message}
 
+        <Labels>Education</Labels>
         <Input
           type="text"
-          placeholder="Education"
+          // placeholder="Education"
           name="education"
           ref={register({
             required: "You must enter highest form of Education",

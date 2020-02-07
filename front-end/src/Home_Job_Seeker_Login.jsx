@@ -16,7 +16,9 @@ import {
 	ButtonStyled,
 	PurpleText,
 	Highlighted,
-	HoverText
+	HoverText, 
+	Labels
+	PurpleTextLogin
 } from './styledcomp/Home';
 
 //creating here the login form for the user with a route and link to the company's
@@ -46,17 +48,20 @@ const Home_Job_Seeker_Login = props => {
 				</LinkStyled>
 			</Links>
 			<Form onSubmit={handleSubmit(onSubmit)}>
+				<Labels>Username</Labels>
 				<Input
 					name='username'
-					placeholder='Username'
+					// placeholder='Username'
 					ref={register({
 						required: 'Required Field'
 					})}
 				/>
 				{errors.email && errors.email.message}
+
+				<Labels>Password</Labels>
 				<Input
 					name='password'
-					placeholder='Password'
+					// placeholder='Password'
 					type='password'
 					ref={register({
 						required: 'You must enter a password',
@@ -73,10 +78,10 @@ const Home_Job_Seeker_Login = props => {
 				{/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword' /> */}
 				<LinkStyled>
-				<PurpleText>Forgot Password?</PurpleText>
+				<PurpleTextLogin>Forgot Password?</PurpleTextLogin>
 				</LinkStyled>
 				<LinkStyled to='/job-seeker-signup'>
-					<PurpleText>Don't have an account? Sign up!</PurpleText>
+					<PurpleTextLogin>Don't have an account? Sign up!</PurpleTextLogin>
 				</LinkStyled>
 				<ButtonStyled type='submit'>Sign in</ButtonStyled>
 			</Form>
