@@ -17,7 +17,10 @@ import {
 	Highlighted,
 	HoverText,
 	Labels,
+
 	PurpleTextLogin
+
+
 } from '../../../styledcomp/Home';
 
 const CompanyLoginForm = props => {

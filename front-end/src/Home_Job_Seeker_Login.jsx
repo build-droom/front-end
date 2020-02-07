@@ -16,7 +16,9 @@ import {
 	ButtonStyled,
 	PurpleText,
 	Highlighted,
+
 	HoverText,
+
 	Labels,
 	PurpleTextLogin
 } from './styledcomp/Home';

@@ -16,6 +16,7 @@ const HomeStyled = styled.div`
 	// background-size:cover;
 `;
 
+
 const CardDiv = styled.div`
 	border: 1px #e7e7e7 solid;
 	border-radius: 20px;
@@ -189,14 +190,28 @@ const DeleteButton = styled.button`
 	padding: 10px 50px;
 	border-radius: 35px;
 	width: 200px;
-	heigth: 100px;
+	height: 100px;
 	border: none;
 	width: 200px;
-	heigth: 100px;
+	height: 100px;
 	// border:2px solid #2F8A90;
 	border: none;
 	cursor: pointer;
 `;
+
+// const DeleteButton = styled.button`
+// 	background-color: red;
+// 	color: white;
+// 	margin-top: 1vh;
+// 	padding: 10px 50px;
+// 	border-radius: 35px;
+// 	width: 200px;
+// 	heigth: 100px;
+// 	// border:2px solid #2F8A90;
+// 	border: none;
+// 	cursor: pointer;
+// `;
+
 
 const TextArea = styled.textarea`
 	width: 250px;
@@ -265,7 +280,18 @@ const EditDisplayFlex = styled.div`
 	}
 `;
 
-const Labels = styled.label`
+
+const StyledHeadingSwipe = styled.h1`
+  color: #2f8a90;
+  font-size: 1.5em;
+  text-align: center;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 70%;
+	
+`;
+        
+  const Labels = styled.label`
 	width: 250px;
 	font-size: 0.8rem;
 	color: #9400d3;
@@ -273,29 +299,31 @@ const Labels = styled.label`
 `;
 
 export {
-	HomeStyled,
-	StyledHeading,
-	Form,
-	Input,
-	Links,
-	LinkStyled,
-	TextArea,
-	ButtonStyled,
-	ButtonStyledSignUp,
-	PurpleText,
-	Highlighted,
-	HoverText,
-	EditDisplayFlex,
-	DescriptionStyled,
-	StyledDashboardHeading,
-	DashboardButton,
-	DashboardCenter,
-	EditButtonDisplayFlex,
-	EditScreenText,
-	DeleteButton,
-	PurpleTextLogin,
-	CardDiv,
-	CardDiv2,
-	Button,
-	Labels
+
+  HomeStyled,
+  StyledHeading,
+  Form,
+  Input,
+  Links,
+  LinkStyled,
+  TextArea,
+  ButtonStyled,
+  ButtonStyledSignUp,
+  PurpleText,
+  Highlighted,
+  HoverText,
+  EditDisplayFlex,
+  DescriptionStyled,
+  StyledDashboardHeading,
+  DashboardButton,
+  DashboardCenter,
+  EditButtonDisplayFlex,
+  EditScreenText,
+  CardDiv,
+  CardDiv2,
+  Button,
+  StyledHeadingSwipe,
+  Labels,
+  DeleteButton,
+  PurpleTextLogin
 };
