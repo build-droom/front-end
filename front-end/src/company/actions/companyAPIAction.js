@@ -63,7 +63,7 @@ export const postData = data => dispatch => {
 	return axiosWithAuthCompany()
 		.post('/companies/register', data)
 		.then(res => {
-			console.log('here');
+			console.log('here', res.data);
 			dispatch({ type: PUSH_DATA_SUCCESS, payload: res.data });
 		})
 		.catch(err => {

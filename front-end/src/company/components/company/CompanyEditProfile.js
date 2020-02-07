@@ -15,7 +15,9 @@ import {
 	HoverText,
 	Button,
 	StyledDashboardHeading,
-	DashboardButton,
+
+	DashboardButton
+
 } from '../../../styledcomp/Home';
 
 import { useDispatch } from 'react-redux';
@@ -67,7 +69,6 @@ const CompanyEditProfile = props => {
 	};
 
 	return (
-
 		<>
 			<Button onClick={() => props.history.goBack()}>Back</Button>
 			<HomeStyled class='company-edit-container'>
@@ -183,9 +184,7 @@ const CompanyEditProfile = props => {
 					/>
 					<DashboardButton>Save</DashboardButton>
 
-					<DeleteButton onClick={deleteProfile}>
-						Delete Profile
-					</DeleteButton>
+					<DeleteButton onClick={deleteProfile}>Delete Profile</DeleteButton>
 				</Form>
 			</HomeStyled>
 		</>

@@ -69,6 +69,7 @@ const DashboardCenter = styled.div`
 
 const EditScreenText = styled.h4`
 	color: #2f8a90;
+	margin-left: 25%;
 `;
 
 const StyledHeading = styled.h1`
@@ -211,6 +212,7 @@ const DeleteButton = styled.button`
 // 	cursor: pointer;
 // `;
 
+
 const TextArea = styled.textarea`
 	width: 250px;
 	margin: 1vh 0;
@@ -218,7 +220,7 @@ const TextArea = styled.textarea`
 	height: 75px;
 
 	border: 1px solid #9b51e0;
-	text-indent:10px;
+	text-indent: 10px;
 
 	&::placeholder {
 		text-indent: 20px;
@@ -291,12 +293,13 @@ const StyledHeadingSwipe = styled.h1`
         
   const Labels = styled.label`
 	width: 250px;
-	font-size: .8rem;
+	font-size: 0.8rem;
 	color: #9400d3;
 	font-family: 'Open Sans', sans-serif;
 `;
 
 export {
+
   HomeStyled,
   StyledHeading,
   Form,

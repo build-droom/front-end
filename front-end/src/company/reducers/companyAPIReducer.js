@@ -13,6 +13,9 @@ import {
 	DELETE_DATA_FAILURE,
 	POST_JOB_START,
 	POST_JOB_SUCCESS,
+	LOGIN_START,
+	LOGIN_SUCCESS,
+	LOGIN_FAILURE,
 	POST_JOB_FAILURE,
 	GET_JOB_START,
 	GET_JOB_SUCCESS,
@@ -22,11 +25,32 @@ import {
 const initialState = {
 	error: '',
 	isLoading: false,
-	data: []
+	data: [],
+	companydata: []
 };
 
 export const companyAPIReducer = (state = initialState, action) => {
 	switch (action.type) {
+		case LOGIN_START:
+			return {
+				...state,
+				error: '',
+				loggingIn: true
+			};
+		case LOGIN_SUCCESS:
+			console.log('kika', action.payload);
+			return {
+				...state,
+				loggingIn: false,
+				error: '',
+				companydata: action.payload
+			};
+		case LOGIN_FAILURE:
+			return {
+				...state,
+				loggingIn: false,
+				error: action.payload
+			};
 		// *****************  GET
 		case FETCH_DATA_START:
 			return {
