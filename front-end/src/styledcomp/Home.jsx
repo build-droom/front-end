@@ -197,19 +197,6 @@ const DeleteButton = styled.button`
 	cursor: pointer;
 `;
 
-const DeleteButton = styled.button`
-	background-color: red;
-	color: white;
-	margin-top: 1vh;
-	padding: 10px 50px;
-	border-radius: 35px;
-	width: 200px;
-	heigth: 100px;
-	// border:2px solid #2F8A90;
-	border: none;
-	cursor: pointer;
-`;
-
 const TextArea = styled.textarea`
 	width: 250px;
 	margin: 1vh 0;
@@ -217,7 +204,7 @@ const TextArea = styled.textarea`
 	height: 75px;
 
 	border: 1px solid #9b51e0;
-	text-indent:10px;
+	text-indent: 10px;
 
 	&::placeholder {
 		text-indent: 20px;
@@ -279,7 +266,7 @@ const EditDisplayFlex = styled.div`
 
 const Labels = styled.label`
 	width: 250px;
-	font-size: .8rem;
+	font-size: 0.8rem;
 	color: #9400d3;
 	font-family: 'Open Sans', sans-serif;
 `;
@@ -309,6 +296,5 @@ export {
 	CardDiv,
 	CardDiv2,
 	Button,
-	Labels,
-	DeleteButton
+	Labels
 };

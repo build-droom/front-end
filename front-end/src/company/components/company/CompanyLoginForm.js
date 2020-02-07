@@ -16,9 +16,7 @@ import {
 	PurpleText,
 	Highlighted,
 	HoverText,
-
-	Labels
-
+	Labels,
 	PurpleTextLogin
 } from '../../../styledcomp/Home';
 
@@ -50,14 +48,12 @@ const CompanyLoginForm = props => {
 					<HoverText>Job Applicant</HoverText>
 				</LinkStyled>
 				<LinkStyled>
-					<Highlighted>
-						Company
-					</Highlighted>
+					<Highlighted>Company</Highlighted>
 				</LinkStyled>
 			</Links>
-			
+
 			<Form onSubmit={handleSubmit(onSubmit)}>
-			<Labels>Email</Labels>
+				<Labels>Email</Labels>
 				<Input
 					name='company_email'
 					// placeholder='Email'

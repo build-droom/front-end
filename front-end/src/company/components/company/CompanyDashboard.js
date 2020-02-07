@@ -17,10 +17,14 @@ import {
 	DashboardCenter,
 	EditButtonDisplayFlex,
 	EditScreenText,
-	Button,
+	Button
 } from '../../../styledcomp/Home';
+import { useSelector } from 'react-redux';
 
 const CompanyDashboard = props => {
+	const id = localStorage.getItem('companyid');
+	const state = useSelector(state => state.companyAPIReducer);
+	console.log('my state', state.companydata);
 
 	return (
 		<DescriptionStyled>
@@ -38,26 +42,23 @@ const CompanyDashboard = props => {
 					</h3>
 				</EditButtonDisplayFlex>
 				<EditDisplayFlex>
-					<EditScreenText>Company</EditScreenText>
-					<EditScreenText>Company Name</EditScreenText>
+					<EditScreenText>{state.companydata.company_name}</EditScreenText>
 					{/* <EditScreenText>{props.company_name}</EditScreenText> */}
 				</EditDisplayFlex>
 
 				<EditDisplayFlex>
-					<EditScreenText>Industry</EditScreenText>
-					<EditScreenText>Industry Name</EditScreenText>
+					<EditScreenText>{state.companydata.industry_type}</EditScreenText>
 					{/* <EditScreenText>{props.industry_type}</EditScreenText> */}
 				</EditDisplayFlex>
 
 				<EditDisplayFlex>
-					<EditScreenText>Location</EditScreenText>
-					<EditScreenText>Location Name</EditScreenText>
+					<EditScreenText>
+						{state.companydata.companies_location}
+					</EditScreenText>
 					{/* <EditScreenText>{props.companies_location}</EditScreenText> */}
 				</EditDisplayFlex>
 			</DashboardCenter>
 			<DashboardCenter>
-				<EditScreenText>Company Description</EditScreenText>
-				{/* <EditScreenText>{props.company_description}</EditScreenText> */}
 				<h3>
 					<DashboardButton onClick={() => props.history.push('/add-a-job')}>
 						Add a Job

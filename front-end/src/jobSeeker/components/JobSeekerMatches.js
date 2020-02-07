@@ -40,7 +40,7 @@ const JobSeekerMatches = props => {
 			<>
 				<Button onClick={() => props.history.goBack()}>Back</Button>
 				<div>
-					<h1>This is the Job seeker matches</h1>
+					<h1>You have {state.matches.length} matches</h1>
 					{state.matches.map((job, index) => (
 						<CardDiv2 className='jobs' key={index}>
 							<p>{job.job_position}</p>

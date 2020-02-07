@@ -10,10 +10,10 @@ export const loginCompany = values => dispatch => {
 	return axiosWithAuthCompany()
 		.post('/companies/login', values)
 		.then(res => {
-			console.log('please work ', res);
+			console.log('please work ', res.data.company);
 			localStorage.setItem('companytoken', res.data.token);
 			localStorage.setItem('companyid', res.data.company.id);
-			dispatch({ type: LOGIN_SUCCESS });
+			dispatch({ type: LOGIN_SUCCESS, payload: res.data.company });
 			// return true;
 		})
 		.catch(err => {

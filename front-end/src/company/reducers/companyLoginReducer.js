@@ -1,8 +1,9 @@
-import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions';
+/* import { LOGIN_START, LOGIN_SUCCESS, LOGIN_FAILURE } from '../actions';
 
 const initialState = {
 	error: '',
-	loggingIn: false
+	loggingIn: false,
+	companydata: []
 };
 
 export const companyLoginReducer = (state = initialState, action) => {
@@ -14,10 +15,12 @@ export const companyLoginReducer = (state = initialState, action) => {
 				loggingIn: true
 			};
 		case LOGIN_SUCCESS:
+			console.log('kika', action.payload);
 			return {
 				...state,
 				loggingIn: false,
-				error: ''
+				error: '',
+				companydata: action.payload
 			};
 		case LOGIN_FAILURE:
 			return {
@@ -29,4 +32,4 @@ export const companyLoginReducer = (state = initialState, action) => {
 		default:
 			return state;
 	}
-};
+}; */

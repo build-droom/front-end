@@ -16,8 +16,8 @@ import {
 	ButtonStyled,
 	PurpleText,
 	Highlighted,
-	HoverText, 
-	Labels
+	HoverText,
+	Labels,
 	PurpleTextLogin
 } from './styledcomp/Home';
 
@@ -42,7 +42,9 @@ const Home_Job_Seeker_Login = props => {
 			<img src={logo} alt='droom_logo' className='logo' />
 			<StyledHeading>Sign In</StyledHeading>
 			<Links>
-				<LinkStyled><Highlighted>Job Applicant</Highlighted></LinkStyled>
+				<LinkStyled>
+					<Highlighted>Job Applicant</Highlighted>
+				</LinkStyled>
 				<LinkStyled onClick={() => props.history.push('/company-login')}>
 					<HoverText>Company</HoverText>
 				</LinkStyled>
@@ -78,7 +80,7 @@ const Home_Job_Seeker_Login = props => {
 				{/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword' /> */}
 				<LinkStyled>
-				<PurpleTextLogin>Forgot Password?</PurpleTextLogin>
+					<PurpleTextLogin>Forgot Password?</PurpleTextLogin>
 				</LinkStyled>
 				<LinkStyled to='/job-seeker-signup'>
 					<PurpleTextLogin>Don't have an account? Sign up!</PurpleTextLogin>
