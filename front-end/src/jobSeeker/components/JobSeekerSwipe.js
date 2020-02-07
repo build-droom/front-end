@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { axiosWithAuthJobSeeker } from '../utils/axiosWithAuthJobSeeker';
 import { useSwipeable } from 'react-swipeable';
+import axios from 'axios'
 
 import { Card, CardWrapper } from 'react-swipeable-cards';
 
@@ -39,40 +40,81 @@ const JobSeekerSwipe = props => {
   // });
   const [number, setNumber] = useState(0);
 
-  useEffect(() => {}, [number]);
+  // useEffect(() => {}, [number]);
 
-  const randomfunction = () => {
-    console.log('numnbenrbamndbksabdksja');
-    console.log(number);
-    setNumber(number + 1);
-  };
+  // const randomfunction = () => {
+  //   console.log('numnbenrbamndbksabdksja');
+  //   console.log(number);
+  //   setNumber(number + 1);
+  // };
 
-  const yesfunction = () => {
-    //post to matches
+  // const yesfunction = () => {
+  //   //post to matches
+  //   axiosWithAuthJobSeeker()
+  //     .post('/matches', {
+  //       seekers_id: id,
+  //       fave_of_seeker: 'true',
+  //       fave_for_job: 'false',
+  //       matched_occupation: 'true'
+  //     })
+  //     .then(res => {
+  //       //call random
+        
+  //     })
+  //     .catch();
+  //   //call random
+  // };
+
+  // const hello = () => {
+  //   console.log('heeeeeeeeeeeeee')
+  //   axios({
+  //     method: 'post',
+  //     url: 'https://droombwlambda.herokuapp.com/api/matches',
+  //     headers: {
+  //       Authorization: localStorage.getItem('jobseekertoken')
+  //     },
+  //     data: {
+  //       seekers_id: id,
+  //       fave_of_seeker: 'true',
+  //       fave_for_job: 'false',
+  //       matched_occupation: 'true'
+  //     }
+  //   })
+  //     .then(res => {
+  //       console.log('we did it')
+  //     })
+  //     .catch();
+  //   //call random
+  // };
+
+
+
+  const hellos = () => {
+    console.log('heeeeeeeeeeeeee')
     axiosWithAuthJobSeeker()
-      .post('/matches', {
+    .post('/matches', {
         seekers_id: id,
         fave_of_seeker: 'true',
         fave_for_job: 'false',
         matched_occupation: 'true'
       })
       .then(res => {
-        //call random
-        randomfunction();
+        console.log('we did it')
       })
       .catch();
     //call random
   };
-
-  const hello = () => {
-    console.log('hello');
-  };
+  
+  // axiosWithAuthCompany()
+  //   .get('/jobs/3')
+  //   .then(res => {
+  //     console.log(res.data);
+  //   });
 
   const nofunction = () => {
-    //call random
-    randomfunction();
-    console.log('nooooooooooo');
-  };
+    console.log('nooooooooooooooo')
+  }
+
 
   // const handlersWorking = useSwipeable({
   // 	// onSwipedLeft: () => setTimeout(next, 0),
@@ -80,11 +122,11 @@ const JobSeekerSwipe = props => {
   // 	trackMouse: true,
   // })
 
-  const handlersBugged = useSwipeable({
-    onSwipedLeft: nofunction,
-    onSwipedRight: nofunction,
-    trackMouse: true
-  });
+  // const handlersBugged = useSwipeable({
+  //   onSwipedLeft: nofunction,
+  //   onSwipedRight: nofunction,
+  //   trackMouse: true
+  // });
 
   const cardWrap = {
     // display: 'flex',
@@ -166,33 +208,28 @@ const JobSeekerSwipe = props => {
           <CardWrapper style={cardWrap}>
             {state.companyAPIReducer.data.map(item => {
               return (
-                <Card key={item} style={cardStyle} onSwipeRight={hello}>
-                  <div>
+                <Card key={item} style={cardStyle} onSwipeRight={hellos} onSwipeLeft={nofunction}>
+                  <div className="help">
                     <label className="pLabel">Salary: </label>
                     <span>{item.salary}</span>
                   </div>
-
-                  <div>
+                  <div className="help">
                     <label className="pLabel">Job: </label>
                     <span>{item.job_position}</span>
                   </div>
-
-                  <div>
+                  {/* <div className="help">
                     <label className="pLabel">Type: </label>
                     <span>{item.employment_type}</span>
-                  </div>
-
-                  <div>
+                  </div> */}
+                  <div className="help">
                     <label className="pLabel">Education: </label>
                     <span>{item.education}</span>
                   </div>
-
-                  <div>
+                  <div className="help">
                     <label className="pLabel">Skills: </label>
                     <span>{item.skills}</span>
-                  </div>
-
-                  <div>
+                  </div >
+                  <div className="help">
                     <label className="pLabel">Location: </label>
                     <span>{item.job_location}</span>
                   </div>

@@ -44,8 +44,8 @@ const CompanyLoginForm = props => {
 	return (
 		<HomeStyled>
 			<img src={logo} alt='droom_logo' className='logo' />
-			<StyledHeading>Sign In</StyledHeading>
-			<Links>
+			<StyledHeading className='marginT15'>Sign In</StyledHeading>
+			<Links className='marginT10'>
 				<LinkStyled onClick={() => props.history.push('/')}>
 					{' '}
 					<HoverText>Job Applicant</HoverText>
@@ -56,7 +56,7 @@ const CompanyLoginForm = props => {
 			</Links>
 
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<Labels>Email</Labels>
+				<Labels className='marginT15'>Email</Labels>
 				<Input
 					name='company_email'
 					// placeholder='Email'
@@ -92,7 +92,7 @@ const CompanyLoginForm = props => {
 
 				{/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword' /> */}
-				<LinkStyled>
+				<LinkStyled className='marginT10'>
 					<PurpleTextLogin>Forgot Password?</PurpleTextLogin>
 				</LinkStyled>
 				<LinkStyled to='/company-signup'>
