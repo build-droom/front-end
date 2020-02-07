@@ -21,6 +21,7 @@ import {
 } from '../../../styledcomp/Home';
 
 const CompanyDashboard = props => {
+
 	return (
 		<DescriptionStyled>
 			<Button onClick={() => props.history.goBack()}>Back</Button>

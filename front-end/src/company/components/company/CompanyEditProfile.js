@@ -8,8 +8,15 @@ import {
 	Links,
 	LinkStyled,
 	ButtonStyled,
+	TextArea,
 	PurpleText,
+
+	Highlighted,
+	DeleteButton,
+	HoverText,
+
 	Button,
+
 	StyledDashboardHeading,
 	DashboardButton,
 	TextArea,
@@ -65,6 +72,7 @@ const CompanyEditProfile = props => {
 	};
 
 	return (
+
 		<>
 			<Button onClick={() => props.history.goBack()}>Back</Button>
 			<HomeStyled class='company-edit-container'>
