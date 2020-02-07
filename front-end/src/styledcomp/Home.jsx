@@ -16,6 +16,7 @@ const HomeStyled = styled.div`
 	// background-size:cover;
 `;
 
+
 const CardDiv = styled.div`
 	border: 1px #e7e7e7 solid;
 	border-radius: 20px;
@@ -277,7 +278,18 @@ const EditDisplayFlex = styled.div`
 	}
 `;
 
-const Labels = styled.label`
+
+const StyledHeadingSwipe = styled.h1`
+  color: #2f8a90;
+  font-size: 1.5em;
+  text-align: center;
+	margin: 0 auto;
+	margin-top: 30px;
+	width: 70%;
+	
+`;
+        
+  const Labels = styled.label`
 	width: 250px;
 	font-size: .8rem;
 	color: #9400d3;
@@ -285,30 +297,30 @@ const Labels = styled.label`
 `;
 
 export {
-	HomeStyled,
-	StyledHeading,
-	Form,
-	Input,
-	Links,
-	LinkStyled,
-	TextArea,
-	ButtonStyled,
-	ButtonStyledSignUp,
-	PurpleText,
-	Highlighted,
-	HoverText,
-	EditDisplayFlex,
-	DescriptionStyled,
-	StyledDashboardHeading,
-	DashboardButton,
-	DashboardCenter,
-	EditButtonDisplayFlex,
-	EditScreenText,
-	DeleteButton,
-	PurpleTextLogin,
-	CardDiv,
-	CardDiv2,
-	Button,
+  HomeStyled,
+  StyledHeading,
+  Form,
+  Input,
+  Links,
+  LinkStyled,
+  TextArea,
+  ButtonStyled,
+  ButtonStyledSignUp,
+  PurpleText,
+  Highlighted,
+  HoverText,
+  EditDisplayFlex,
+  DescriptionStyled,
+  StyledDashboardHeading,
+  DashboardButton,
+  DashboardCenter,
+  EditButtonDisplayFlex,
+  EditScreenText,
+  CardDiv,
+  CardDiv2,
+  Button,
+  StyledHeadingSwipe,
 	Labels,
 	DeleteButton
-};
+
+
