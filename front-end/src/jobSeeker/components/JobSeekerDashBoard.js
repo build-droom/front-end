@@ -6,6 +6,7 @@ import {
 	StyledHeading,
 	Form,
 	Button,
+	Signout,
 	Input,
 	Links,
 	LinkStyled,
@@ -42,6 +43,11 @@ const JobSeekerDashBoard = props => {
 
 		// .catch(err => console.log(err));
 	}, []);
+
+	const signout = () => {
+		props.history.push('/');
+		localStorage.removeItem('jobseekertoken');
+	};
 
 	return (
 		<>
@@ -82,6 +88,7 @@ const JobSeekerDashBoard = props => {
 						}
 						Matches
 					</DashboardButton>
+					<DashboardButton onClick={signout}>Signout</DashboardButton>
 				</Form>
 			</HomeStyled>
 		</>
