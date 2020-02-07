@@ -189,27 +189,27 @@ const DeleteButton = styled.button`
 	padding: 10px 50px;
 	border-radius: 35px;
 	width: 200px;
-	heigth: 100px;
+	height: 100px;
 	border: none;
 	width: 200px;
-	heigth: 100px;
+	height: 100px;
 	// border:2px solid #2F8A90;
 	border: none;
 	cursor: pointer;
 `;
 
-const DeleteButton = styled.button`
-	background-color: red;
-	color: white;
-	margin-top: 1vh;
-	padding: 10px 50px;
-	border-radius: 35px;
-	width: 200px;
-	heigth: 100px;
-	// border:2px solid #2F8A90;
-	border: none;
-	cursor: pointer;
-`;
+// const DeleteButton = styled.button`
+// 	background-color: red;
+// 	color: white;
+// 	margin-top: 1vh;
+// 	padding: 10px 50px;
+// 	border-radius: 35px;
+// 	width: 200px;
+// 	heigth: 100px;
+// 	// border:2px solid #2F8A90;
+// 	border: none;
+// 	cursor: pointer;
+// `;
 
 const TextArea = styled.textarea`
 	width: 250px;
@@ -320,7 +320,7 @@ export {
   CardDiv2,
   Button,
   StyledHeadingSwipe,
-	Labels,
-	DeleteButton
-
-
+  Labels,
+  DeleteButton,
+  PurpleTextLogin
+};

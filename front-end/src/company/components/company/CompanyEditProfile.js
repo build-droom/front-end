@@ -10,17 +10,12 @@ import {
 	ButtonStyled,
 	TextArea,
 	PurpleText,
-
 	Highlighted,
 	DeleteButton,
 	HoverText,
-
 	Button,
-
 	StyledDashboardHeading,
 	DashboardButton,
-	TextArea,
-	DeleteButton
 } from '../../../styledcomp/Home';
 
 import { useDispatch } from 'react-redux';
