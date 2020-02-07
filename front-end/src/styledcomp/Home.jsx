@@ -16,7 +16,6 @@ const HomeStyled = styled.div`
 	// background-size:cover;
 `;
 
-
 const CardDiv = styled.div`
 	border: 1px #e7e7e7 solid;
 	border-radius: 20px;
@@ -70,7 +69,7 @@ const DashboardCenter = styled.div`
 const EditScreenText = styled.h4`
 	color: #2f8a90;
 	margin-left: 25%;
-	text-align:left;
+	text-align: left;
 `;
 
 const StyledHeading = styled.h1`
@@ -179,7 +178,7 @@ const DashboardButton = styled.button`
 	padding: 10px 50px;
 	border-radius: 35px;
 	width: 200px;
-	
+
 	border: none;
 	cursor: pointer;
 `;
@@ -187,7 +186,7 @@ const DashboardButton = styled.button`
 const DeleteButton = styled.button`
 	background-color: #de562a;
 	color: white;
-	margin-top: 25px;;
+	margin-top: 25px;
 	padding: 10px 50px;
 	border-radius: 35px;
 	width: 200px;
@@ -211,7 +210,6 @@ const DeleteButton = styled.button`
 // 	border: none;
 // 	cursor: pointer;
 // `;
-
 
 const TextArea = styled.textarea`
 	width: 250px;
@@ -280,50 +278,60 @@ const EditDisplayFlex = styled.div`
 	}
 `;
 
-
 const StyledHeadingSwipe = styled.h1`
-  color: #2f8a90;
-  font-size: 1.5em;
-  text-align: center;
+	color: #2f8a90;
+	font-size: 1.5em;
+	text-align: center;
 	margin: 0 auto;
 	margin-top: 30px;
 	width: 70%;
-	
 `;
-        
-  const Labels = styled.label`
+
+const Labels = styled.label`
 	width: 250px;
 	font-size: 0.8rem;
 	color: #9400d3;
 	font-family: 'Open Sans', sans-serif;
 `;
 
-export {
+const Signout = styled.button`
+	background-color: #186068;
+	color: white;
+	margin-top: 10px;
+	padding: 10px 50px;
+	border-radius: 35px;
+	width: 200px;
 
-  HomeStyled,
-  StyledHeading,
-  Form,
-  Input,
-  Links,
-  LinkStyled,
-  TextArea,
-  ButtonStyled,
-  ButtonStyledSignUp,
-  PurpleText,
-  Highlighted,
-  HoverText,
-  EditDisplayFlex,
-  DescriptionStyled,
-  StyledDashboardHeading,
-  DashboardButton,
-  DashboardCenter,
-  EditButtonDisplayFlex,
-  EditScreenText,
-  CardDiv,
-  CardDiv2,
-  Button,
-  StyledHeadingSwipe,
-  Labels,
-  DeleteButton,
-  PurpleTextLogin
+	border: none;
+	cursor: pointer;
+`;
+
+export {
+	HomeStyled,
+	StyledHeading,
+	Form,
+	Signout,
+	Input,
+	Links,
+	LinkStyled,
+	TextArea,
+	ButtonStyled,
+	ButtonStyledSignUp,
+	PurpleText,
+	Highlighted,
+	HoverText,
+	EditDisplayFlex,
+	DescriptionStyled,
+	StyledDashboardHeading,
+	DashboardButton,
+	DashboardCenter,
+	EditButtonDisplayFlex,
+	EditScreenText,
+	CardDiv,
+	CardDiv2,
+	Button,
+	StyledHeadingSwipe,
+	Labels,
+	DeleteButton,
+	PurpleTextLogin
 };
