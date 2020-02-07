@@ -68,6 +68,7 @@ const DashboardCenter = styled.div`
 
 const EditScreenText = styled.h4`
 	color: #2f8a90;
+	margin-left: 25%;
 `;
 
 const StyledHeading = styled.h1`

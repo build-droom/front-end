@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {
 	HomeStyled,
 	StyledHeading,
@@ -19,13 +19,23 @@ import {
 	EditScreenText,
 	Button
 } from '../../../styledcomp/Home';
-import { useSelector } from 'react-redux';
+import { axiosWithAuthCompany } from './../../utils/axiosWithAuthCompany';
 
 const CompanyDashboard = props => {
 	const id = localStorage.getItem('companyid');
-	const state = useSelector(state => state.companyAPIReducer);
-	console.log('my state', state.companydata);
+	const [info, setInfo] = useState('');
 
+	console.log('my info', info);
+
+	useEffect(() => {
+		axiosWithAuthCompany()
+			.get(`/companies/${id}`)
+			.then(res => {
+				console.log('this is edit profile', res);
+				setInfo(res.data);
+			})
+			.catch(err => console.log(err));
+	}, []);
 	return (
 		<DescriptionStyled>
 			<Button onClick={() => props.history.goBack()}>Back</Button>
@@ -42,19 +52,25 @@ const CompanyDashboard = props => {
 					</h3>
 				</EditButtonDisplayFlex>
 				<EditDisplayFlex>
-					<EditScreenText>{state.companydata.company_name}</EditScreenText>
+					<EditScreenText>{info.company_name}</EditScreenText>
 					{/* <EditScreenText>{props.company_name}</EditScreenText> */}
 				</EditDisplayFlex>
 
 				<EditDisplayFlex>
-					<EditScreenText>{state.companydata.industry_type}</EditScreenText>
+					<EditScreenText>{info.companies_description}</EditScreenText>
 					{/* <EditScreenText>{props.industry_type}</EditScreenText> */}
 				</EditDisplayFlex>
 
 				<EditDisplayFlex>
-					<EditScreenText>
-						{state.companydata.companies_location}
-					</EditScreenText>
+					<EditScreenText>{info.companies_location}</EditScreenText>
+					{/* <EditScreenText>{props.companies_location}</EditScreenText> */}
+				</EditDisplayFlex>
+				<EditDisplayFlex>
+					<EditScreenText>{info.company_email}</EditScreenText>
+					{/* <EditScreenText>{props.companies_location}</EditScreenText> */}
+				</EditDisplayFlex>
+				<EditDisplayFlex>
+					<EditScreenText>{info.companies_description}</EditScreenText>
 					{/* <EditScreenText>{props.companies_location}</EditScreenText> */}
 				</EditDisplayFlex>
 			</DashboardCenter>
