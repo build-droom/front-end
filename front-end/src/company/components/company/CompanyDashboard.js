@@ -37,8 +37,10 @@ const CompanyDashboard = props => {
 			.catch(err => console.log(err));
 	}, []);
 	return (
+<>
+		<Button onClick={() => props.history.goBack()}>Back</Button>
 		<DescriptionStyled>
-			<Button onClick={() => props.history.goBack()}>Back</Button>
+			
 
 			<StyledDashboardHeading>DROOM</StyledDashboardHeading>
 			<DashboardCenter>
@@ -70,7 +72,7 @@ const CompanyDashboard = props => {
 					{/* <EditScreenText>{props.companies_location}</EditScreenText> */}
 				</EditDisplayFlex>
 				<EditDisplayFlex>
-					<EditScreenText>{info.companies_description}</EditScreenText>
+					<EditScreenText>{info.industry_type}</EditScreenText>
 					{/* <EditScreenText>{props.companies_location}</EditScreenText> */}
 				</EditDisplayFlex>
 			</DashboardCenter>
@@ -87,6 +89,8 @@ const CompanyDashboard = props => {
 				</h3>
 			</DashboardCenter>
 		</DescriptionStyled>
+
+		</>
 	);
 };
 

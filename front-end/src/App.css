@@ -1,4 +1,20 @@
 .pLabel {
   font-size: 20px;
+}
+.help {
   pointer-events: none;
+}
+
+
+.marginT15 {
+  margin-top:15px;
+}
+
+
+.marginT10 {
+  margin-top:10px;
+}
+
+.marginT25 {
+  margin-top:25px;
 }

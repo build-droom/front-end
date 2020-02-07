@@ -42,8 +42,8 @@ const Home_Job_Seeker_Login = props => {
 	return (
 		<HomeStyled>
 			<img src={logo} alt='droom_logo' className='logo' />
-			<StyledHeading>Sign In</StyledHeading>
-			<Links>
+			<StyledHeading className='marginT15'>Sign In</StyledHeading>
+			<Links className='marginT10'>
 				<LinkStyled>
 					<Highlighted>Job Applicant</Highlighted>
 				</LinkStyled>
@@ -52,7 +52,7 @@ const Home_Job_Seeker_Login = props => {
 				</LinkStyled>
 			</Links>
 			<Form onSubmit={handleSubmit(onSubmit)}>
-				<Labels>Username</Labels>
+				<Labels className='marginT15'>Username</Labels>
 				<Input
 					name='username'
 					// placeholder='Username'
@@ -81,13 +81,13 @@ const Home_Job_Seeker_Login = props => {
 				{errors.password && <p className='red'>{errors.password.message}</p>}
 				{/* add a 'Forgot Password' page if we get time.
         <Link to='/forgotpassword' /> */}
-				<LinkStyled>
+				<LinkStyled className='marginT10'>
 					<PurpleTextLogin>Forgot Password?</PurpleTextLogin>
 				</LinkStyled>
 				<LinkStyled to='/job-seeker-signup'>
 					<PurpleTextLogin>Don't have an account? Sign up!</PurpleTextLogin>
 				</LinkStyled>
-				<ButtonStyled type='submit'>Sign in</ButtonStyled>
+				<ButtonStyled className='marginT25' type='submit'>Sign in</ButtonStyled>
 			</Form>
 		</HomeStyled>
 	);

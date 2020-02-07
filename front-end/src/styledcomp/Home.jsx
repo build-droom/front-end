@@ -51,7 +51,7 @@ const CardDiv2 = styled.div`
 `;
 
 const EditButtonDisplayFlex = styled.div`
-	margin-right: 27%;
+	margin-right: 19%;
 	@media (max-width: 1000px) {
 		margin-right: 40%;
 	}
@@ -70,6 +70,7 @@ const DashboardCenter = styled.div`
 const EditScreenText = styled.h4`
 	color: #2f8a90;
 	margin-left: 25%;
+	text-align:left;
 `;
 
 const StyledHeading = styled.h1`
@@ -174,26 +175,25 @@ const ButtonStyledSignUp = styled.button`
 const DashboardButton = styled.button`
 	background-color: #9b51e0;
 	color: white;
-	margin-top: 1vh;
+	margin-top: 10px;
 	padding: 10px 50px;
 	border-radius: 35px;
 	width: 200px;
-	heigth: 100px;
+	
 	border: none;
 	cursor: pointer;
 `;
 
 const DeleteButton = styled.button`
-	background-color: red;
+	background-color: #de562a;
 	color: white;
-	margin-top: 1vh;
+	margin-top: 25px;;
 	padding: 10px 50px;
 	border-radius: 35px;
 	width: 200px;
-	height: 100px;
+	height: 40px;
 	border: none;
 	width: 200px;
-	height: 100px;
 	// border:2px solid #2F8A90;
 	border: none;
 	cursor: pointer;
