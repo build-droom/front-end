@@ -17,7 +17,7 @@ import {
 	DashboardCenter,
 	EditButtonDisplayFlex,
 	EditScreenText,
-	Button
+	Button,
 } from '../../../styledcomp/Home';
 
 const CompanyDashboard = props => {

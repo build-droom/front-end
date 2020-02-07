@@ -16,7 +16,8 @@ import {
 	ButtonStyled,
 	PurpleText,
 	Highlighted,
-	HoverText,
+	HoverText, 
+	Labels
 	PurpleTextLogin
 } from './styledcomp/Home';
 
@@ -47,17 +48,20 @@ const Home_Job_Seeker_Login = props => {
 				</LinkStyled>
 			</Links>
 			<Form onSubmit={handleSubmit(onSubmit)}>
+				<Labels>Username</Labels>
 				<Input
 					name='username'
-					placeholder='Username'
+					// placeholder='Username'
 					ref={register({
 						required: 'Required Field'
 					})}
 				/>
 				{errors.email && errors.email.message}
+
+				<Labels>Password</Labels>
 				<Input
 					name='password'
-					placeholder='Password'
+					// placeholder='Password'
 					type='password'
 					ref={register({
 						required: 'You must enter a password',
